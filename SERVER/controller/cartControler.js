@@ -7,6 +7,14 @@ export const cartController = async (req, res) => {
         const { userId } = req.params;
         const { productId } = req.body;
 
+        // Check if the productId is a valid ObjectId
+        if (!mongoose.Types.ObjectId.isValid(productId)) {
+            return res.status(400).json({
+                success: false,
+                message: "Invalid productId format",
+            });
+        }
+
 
         let cart = await cartModel.findOne({ userId });
 

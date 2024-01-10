@@ -16,6 +16,7 @@ const UserOrder = () => {
         try {
 
             const { data } = await axios.get('http://localhost:4004/api/orders')
+            console.log("data in orders data", data)
             console.log("data in orders", data?.orders)
             setOrders(data)
 
