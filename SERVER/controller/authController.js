@@ -231,10 +231,8 @@ export const getOrdersControllers = async (req, res) => {
             .find({ buyer: req.user._id })
             .populate("products", "-photo")
             .populate("buyer", "name");
-        console.log("orders is here ", orders)
+        //  console.log("orders is here ", orders)
         res.json(orders);
-
-
     }
     catch (error) {
         console.log("error in getting order", error)
@@ -263,9 +261,10 @@ export const getAllOrdersControllers = async (req, res) => {
         console.log("error in getting All order", error)
         res.status(500).send({
             message: false,
-            message: "Some things went wrong on getting All orders"
-        },
-            error)
+            message: "Some things went wrong on getting All orders",
+
+            error
+        })
     }
 
 }

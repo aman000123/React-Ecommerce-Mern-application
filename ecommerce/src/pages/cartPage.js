@@ -76,16 +76,17 @@ const Cart = () => {
             const { data } = await axios.post("http://localhost:4004/api/product/braintree/payment", {
                 nonce,
                 cart: cart.map(item => item.productId._id), // Send only product IDs
-
-
             });
             console.log("data in payment", data)
             setLoading(false);
-            if (data.ok && data.payment.success) {
-                // Payment successful
-                setCart([]); // Empty the cart
-                navigate("/dashboard/user/orders");
-                toast.success("Payment Completed Successfully ");
+            if (data.ok) {
+                // Check for success status or handle other payment response
+                if (data.payment.success) {
+                    // Payment successful
+                    setCart([]); // Empty the cart
+                    navigate("/dashboard/user/orders");
+                    toast.success("Payment Completed Successfully");
+                }
             } else {
                 // Payment failed
                 console.log("payment failed")
