@@ -53,7 +53,7 @@ const SingleCategoryProduct = () => {
                         {product?.map(item =>
 
                             // <Link to={`/dashboard/admin/product/${item?.slug}`} key={item?._id} className="product-link">
-                            <div className="card m-2 allproducts" style={{ width: '18rem', height: "25rem" }} key={item._id} >
+                            <div className="card m-2 allproducts" style={{ width: '16rem', height: "19rem" }} key={item._id} >
                                 <img src={`http://localhost:4004/api/product/product-photo/${item._id}`} className="card-img-top" alt={item.name}
                                     style={{
                                         objectFit: 'cover', width: '100%', height: '50%', display: "block", margin: "auto"

@@ -16,8 +16,8 @@ const UserOrder = () => {
         try {
 
             const { data } = await axios.get('http://localhost:4004/api/orders')
-            console.log("data in orders data", data)
-            console.log("data in orders", data?.orders)
+            // console.log("data in orders data", data)
+            // console.log("data in orders", data?.orders)
             setOrders(data)
 
 
@@ -59,8 +59,7 @@ const UserOrder = () => {
                                                     <td>{index + 1}</td>
                                                     <td>{o?.status}</td>
                                                     <td>{o?.buyer?.name}</td>
-                                                    <td>{moment(o?.createAt).fromNow()}</td>
-                                                    {console.log("o?.payment.success=>", o?.payment.success)}
+                                                    <td>{moment(o?.createdAt).fromNow()}</td>
                                                     <td>{o?.payment.success ? "Success" : "Failed"}</td>
                                                     <td>{o?.products?.length}</td>
                                                 </tr>

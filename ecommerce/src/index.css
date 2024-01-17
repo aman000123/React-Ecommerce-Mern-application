@@ -49,7 +49,7 @@
 /* //footer */
 .footer {
   color: white;
-  padding: 25px;
+  padding: 15px;
   background: #000000;
   /* fallback for old browsers */
   background: -webkit-linear-gradient(to right,
@@ -167,4 +167,12 @@
 
 .allproducts {
   transition: transform 0.2s ease-in-out;
+}
+
+.cartProducts p {
+  margin-bottom: 10px !important;
+}
+
+.cartProducts h5 {
+  margin-bottom: 0px !important;
 }

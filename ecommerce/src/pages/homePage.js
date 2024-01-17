@@ -135,7 +135,7 @@ const HomePage = () => {
         <Layout title={"All Products- Best Offers"}>
             <div className='container'>
                 <div className='row mt-4'>
-                    <div className='col-md-3'>
+                    <div className='col-md-2'>
                         <h6 className=''>Filter Product by Category</h6>
                         <div className='d-flex  flex-column cat'>
                             {categories?.map((c) => (
@@ -162,19 +162,19 @@ const HomePage = () => {
                         </LockResetIcon>
 
                     </div>
-                    <div className='col-md-9'>
+                    <div className='col-md-10'>
                         {/* <h1 className='text-center'>All Products</h1> */}
                         {/* {JSON.stringify(checked, null, 4)}
                     {JSON.stringify(radio, null, 4)} */}
-                        <div className='d-flex flex-wrap justify-content-evenly '>
+                        <div className='d-flex flex-wrap justify-content-evenly cartProducts'>
                             {products?.map(item =>
-                                <div className="card m-2 allproducts" style={{ width: '18rem', height: '22rem' }}
+                                <div className="card m-2 allproducts" style={{ width: '16rem', height: '19rem' }}
                                     key={item?._id} >
                                     <img src={`http://localhost:4004/api/product/product-photo/${item._id}`} className="card-img-top" alt={item.name}
                                         style={{
                                             objectFit: 'cover', width: '100%', height: '50%', display: "block", margin: "auto"
                                         }} />
-                                    <div className="card-body" style={{ padding: "8px 15px" }}>
+                                    <div className="card-body" style={{ padding: "14px 10px" }}>
                                         <h5 className="card-title">{item.name.substring(0, 24)}..</h5>
                                         <p className="card-text">{item.description.substring(0, 30)}</p>
                                         <p className="card-text">Price-{item.price}Rs</p>

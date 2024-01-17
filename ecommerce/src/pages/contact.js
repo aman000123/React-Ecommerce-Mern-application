@@ -5,15 +5,15 @@ const Contact = () => {
     return (
         <Layout title={"Contact us"}>
             <div className="row contactus ">
-                <div className="col-md-6 ">
+                <div className="col-md-6">
                     <img
                         src="/images/contactus.jpeg"
                         alt="contactus"
-                        style={{ width: "100%" }}
+                        style={{ width: "85%" }}
                     />
                 </div>
-                <div className="col-md-4">
-                    <h1 className="bg-dark p-2 text-white text-center">CONTACT US</h1>
+                <div className="col-md-6">
+                    <h3 className="bg-dark p-2 text-white text-center">CONTACT US</h3>
                     <p className="text-justify mt-2">
                         any query and info about prodduct feel free to call anytime we 24X7
                         vaialible
