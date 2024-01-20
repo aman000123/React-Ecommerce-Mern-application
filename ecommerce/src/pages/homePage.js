@@ -33,7 +33,6 @@ const HomePage = () => {
         }
         catch (error) {
             console.log("error in geting total count", error)
-
         }
     }
     const getAllCategory = async () => {
@@ -54,6 +53,7 @@ const HomePage = () => {
         if (page === 1) return
         loadMore()
     }, [page])
+
     const loadMore = async () => {
         try {
             setLoading(true)
@@ -109,9 +109,9 @@ const HomePage = () => {
     }, [checked, radio])
 
 
-    //get filter product 
+    //get filter products 
     const filterProduct = async () => {
-        ///product-filter
+        ///product-filter data
         try {
             const { data } = await axios.post('http://localhost:4004/api/product/product-filter', {
                 checked, radio
