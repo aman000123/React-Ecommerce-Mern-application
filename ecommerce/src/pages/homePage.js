@@ -176,7 +176,7 @@ const HomePage = () => {
                                         }} />
                                     <div className="card-body" style={{ padding: "14px 10px" }}>
                                         <h5 className="card-title">{item.name.substring(0, 24)}..</h5>
-                                        <p className="card-text">{item.description.substring(0, 30)}</p>
+                                        <p className="card-text">{item.description.substring(0, 25)}...</p>
                                         <p className="card-text">Price-{item.price}Rs</p>
                                         <div className='details'>
                                             <button className="btn btn-primary ms-1"

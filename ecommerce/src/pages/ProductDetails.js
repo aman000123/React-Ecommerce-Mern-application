@@ -51,13 +51,13 @@ const ProductDetailes = () => {
 
     return (
         <Layout title={"Product details"}>
-            <div className="row container m-5"  >
-                <div className="col-md-6 " style={{
+            <div className="row container mt-4"  >
+                <div className="col-md-6 allproducts  " style={{
                     height: '50vh'
                 }}>
                     <img src={`http://localhost:4004/api/product/product-photo/${product?._id}`} className="card-img-top" alt={product?.name}
                         style={{
-                            objectFit: 'cover', width: '100%', height: '100%', display: "block", margin: "auto"
+                            objectFit: 'none', width: '100%', height: '100%', display: "block", margin: "auto"
                         }} /> </div>
                 <div className="col-md-6" style={{ height: '50vh' }}>
                     <h4 className="text-center">Product Details</h4>
@@ -69,8 +69,8 @@ const ProductDetailes = () => {
                 </div>
             </div>
             <hr />
-            <div className="row m-5 container">
-                <h5>similer Product</h5>
+            <div className="row  container">
+                <h5 className="text-center">similer Product</h5>
                 {relatedProducts?.length < 1 && (<p className="text-center">No Similer product found</p>)}
                 <div className='d-flex flex-wrap'>
                     {relatedProducts?.map(item =>
@@ -80,8 +80,8 @@ const ProductDetailes = () => {
                                     objectFit: 'cover', width: '100%', height: '50%', display: "block", margin: "auto"
                                 }} />
                             <div className="card-body">
-                                <h5 className="card-title">{item.name.substring(0, 25)}</h5>
-                                <p className="card-text">{item.description.substring(0, 30)}</p>
+                                <h5 className="card-title">{item.name.substring(0, 25)}...</h5>
+                                <p className="card-text">{item.description.substring(0, 25)}...</p>
                                 <p className="card-text">Price-{item.price}Rs</p>
 
 

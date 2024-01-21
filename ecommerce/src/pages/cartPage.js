@@ -64,39 +64,34 @@ const Cart = () => {
 
 
     //handlePayment
-
     const handlePayment = async () => {
         try {
             setLoading(true);
-            if (!instance) {
-                throw new Error("Braintree instance not available");
-            }
+
+            if (!instance) throw new Error("Braintree instance not available");
 
             const { nonce } = await instance.requestPaymentMethod();
             const { data } = await axios.post("http://localhost:4004/api/product/braintree/payment", {
                 nonce,
-                cart: cart.map(item => item.productId._id), // Send only product IDs
+                cart: cart.map(item => item.productId._id),
             });
-            console.log("data in payment", data)
+
+            console.log("data in payment", data);
             setLoading(false);
-            if (data.ok) {
-                // Check for success status or handle other payment response
-                if (data.payment.success) {
-                    // Payment successful
-                    setCart([]); // Empty the cart
-                    navigate("/dashboard/user/orders");
-                    toast.success("Payment Completed Successfully");
-                }
+
+            if (data.ok && !data.payment.errors) {
+                // Payment successful
+                setCart([]);
+                navigate("/dashboard/user/orders");
+                toast.success("Payment Completed Successfully");
             } else {
                 // Payment failed
-                console.log("payment failed")
-                toast.error("Payment Failed");
-
+                console.log("payment failed");
+                toast.error(data.payment?.message || "Payment Failed");
             }
-
-
         } catch (error) {
             console.log("Error in payment", error);
+            toast.error("Payment Failed");
             setLoading(false);
         }
     };

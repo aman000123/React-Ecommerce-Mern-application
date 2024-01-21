@@ -36,7 +36,7 @@ const SearchPage = () => {
                                     }} />
                                 <div className="card-body">
                                     <h5 className="card-title">{item.name}</h5>
-                                    <p className="card-text">{item.description.substring(0, 30)}</p>
+                                    <p className="card-text">{item.description.substring(0, 25)}...</p>
                                     <p className="card-text">Price-{item.price}Rs</p>
                                     <div className="details">
 

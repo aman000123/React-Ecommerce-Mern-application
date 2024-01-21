@@ -44,14 +44,12 @@ const SingleCategoryProduct = () => {
 
     return (
         <Layout>
-
             <div className="container">
 
                 <h6 className="text-center">{product?.length}Result found</h6>
                 <div className="row">
-                    <div className='d-flex flex-wrap'>
+                    <div className='d-flex flex-wrap cartProducts'>
                         {product?.map(item =>
-
                             // <Link to={`/dashboard/admin/product/${item?.slug}`} key={item?._id} className="product-link">
                             <div className="card m-2 allproducts" style={{ width: '16rem', height: "19rem" }} key={item._id} >
                                 <img src={`http://localhost:4004/api/product/product-photo/${item._id}`} className="card-img-top" alt={item.name}
@@ -60,7 +58,7 @@ const SingleCategoryProduct = () => {
                                     }} />
                                 <div className="card-body">
                                     <h5 className="card-title">{item.name}</h5>
-                                    <p className="card-text">{item.description.substring(0, 30)}</p>
+                                    <p className="card-text">{item.description.substring(0, 25)}...</p>
                                     <p className="card-text">Price-{item.price}Rs</p>
                                     <div className='details'>
                                         <button className="btn btn-primary ms-1"

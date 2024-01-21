@@ -449,7 +449,7 @@ export const brainTreePaymentController = async (req, res) => {
                 },
             },
             async function (error, result) {
-                if (result) {
+                if (result && result.success) {
                     // Save order details to your database
                     const order = new orderModel({
                         products: cart, // Save the list of product IDs
@@ -460,6 +460,7 @@ export const brainTreePaymentController = async (req, res) => {
 
                     // Save the order
                     await order.save();
+
 
                     // Send a success response with payment status as true
                     res.json({ ok: true, payment: { ...result, success: true } });

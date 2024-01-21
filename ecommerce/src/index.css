@@ -176,3 +176,7 @@
 .cartProducts h5 {
   margin-bottom: 0px !important;
 }
+
+.allproducts .card-body {
+  padding: 9px !important;
+}
