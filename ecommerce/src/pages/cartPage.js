@@ -1,8 +1,6 @@
 import Layout from "../components/Layout/Layout"
 import { useCart } from "../context/cart"
-
 import DropIn from "braintree-web-drop-in-react"
-
 import { useAuth } from "../context/auth"
 import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"

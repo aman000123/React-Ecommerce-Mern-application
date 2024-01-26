@@ -11,9 +11,38 @@ import { Checkbox, Radio } from 'antd'
 import { useCart } from '../context/cart'
 import '../style/home.css'
 import LockResetIcon from '@mui/icons-material/LockReset';
+import ChildCareIcon from '@mui/icons-material/ChildCare';
+import WomanIcon from '@mui/icons-material/Woman';
+import DvrIcon from '@mui/icons-material/Dvr';
+import ElectricalServicesIcon from '@mui/icons-material/ElectricalServices';
+import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
+import ManIcon from '@mui/icons-material/Man';
+import Face4Icon from '@mui/icons-material/Face4';
+import Backgrounds from '../components/Layout/Background';
+
+
+
+
+
+
+
+const categoryIcons = {
+    Kids: <ChildCareIcon style={{ fontSize: '2.5rem' }} />,
+    Mail: <ManIcon style={{ fontSize: '2.5rem' }} />, // Replace with the actual Mail icon
+    Female: <WomanIcon style={{ fontSize: '2.5rem' }} />,
+    'Electronics gadgets': <DvrIcon style={{ fontSize: '2.5rem' }} />,
+    'Electrical gadgets': <ElectricalServicesIcon style={{ fontSize: '2.5rem' }} />,
+    Grocerry: <LocalGroceryStoreIcon style={{ fontSize: '2.5rem' }} />,
+    Dressings: <Face4Icon style={{ fontSize: '2.5rem' }} />, // Replace with the actual Dressings icon
+};
+
 
 
 const HomePage = () => {
+
+
+
+
     const navigate = useNavigate()
     const [cart, addToCart] = useCart();
     const [auth, setAuth] = useAuth()
@@ -133,36 +162,37 @@ const HomePage = () => {
 
     return (
         <Layout title={"All Products- Best Offers"}>
+            <Backgrounds />
             <div className='container'>
                 <div className='row mt-4'>
-                    <div className='col-md-2'>
-                        <h6 className=''>Filter Product by Category</h6>
-                        <div className='d-flex  flex-column cat'>
+                    <div className='col-md-12'>
+                        {/* <h6 className=''>Filter Product by Category</h6> */}
+                        <div className='d-flex  flex-row cat   justify-content-end'>
                             {categories?.map((c) => (
                                 <Checkbox key={c._id} onChange={(e) => handleFilter(e.target.checked, c._id)}>
-                                    {c.name}
+                                    {categoryIcons[c.name]} {c.name}
                                 </Checkbox>
                             ))}
                         </div>
-                        <h6 className=' mt-4'>Filter Product by Price</h6>
-                        <div className='d-flex  flex-column'>
-                            <Radio.Group onChange={e => setRadio(e.target.value)}>
+                        {/* <h6 className='mt-4'>Filter Product by Price</h6> */}
+                        <div className='col-md-12 d-flex flex-row align-items-center justify-content-end mt-3'>
+
+                            <Radio.Group className='d-flex' onChange={e => setRadio(e.target.value)}>
                                 {Prices.map(p => (
-                                    <div key={p._id}>
-                                        <Radio value={p.array} >{p.name}</Radio>
+                                    <div key={p._id} className="ms-3">
+                                        <Radio value={p.array}>{p.name}</Radio>
                                     </div>
                                 ))}
                             </Radio.Group>
+                            <LockResetIcon style={{ cursor: "pointer", fontSize: "37px" }} onClick={() => window.location.reload()}
+                                className=''>
+                            </LockResetIcon>
                         </div>
 
-                        <LockResetIcon style={{ cursor: "pointer", fontSize: "37px" }} onClick={() => window.location.reload()}
-                            className='mt-3'
-                        >
 
-                        </LockResetIcon>
 
                     </div>
-                    <div className='col-md-10'>
+                    <div className='col-md-12 mt-3'>
                         {/* <h1 className='text-center'>All Products</h1> */}
                         {/* {JSON.stringify(checked, null, 4)}
                     {JSON.stringify(radio, null, 4)} */}
