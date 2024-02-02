@@ -83,3 +83,34 @@
     font-weight: bold;
     font-size: 20px !important;
 }
+
+.cat .ant-checkbox-inner {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.catName {
+    display: inline-block;
+}
+
+@media (max-width: 768px) {
+    .cat .ant-checkbox-inner {
+        display: none;
+
+    }
+
+    .cat .ant-checkbox:hover .ant-checkbox-inner {
+        display: inline-block;
+
+    }
+
+
+    .catName {
+        display: none;
+    }
+
+    /* Show category name on hover */
+    /* .cat:hover .catName {
+        display: inline-block;
+    } */
+}

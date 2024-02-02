@@ -1,0 +1,28 @@
+.cat .ant-checkbox-inner {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 426px) {
+    .slider-container .slick-list {
+        height: 120px;
+    }
+
+    .slider-container img {
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+/* Laptop-specific styles */
+@media (min-width: 768px) {
+    .slider-container .slick-list {
+        height: 300px;
+    }
+
+    .slider-container img {
+        height: 100%;
+        object-fit: cover;
+    }
+}

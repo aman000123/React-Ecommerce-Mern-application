@@ -170,7 +170,7 @@ const HomePage = () => {
                         <div className='d-flex  flex-row cat   justify-content-end'>
                             {categories?.map((c) => (
                                 <Checkbox key={c._id} onChange={(e) => handleFilter(e.target.checked, c._id)}>
-                                    {categoryIcons[c.name]} {c.name}
+                                    {categoryIcons[c.name]} <span className='catName'>{c.name}</span>
                                 </Checkbox>
                             ))}
                         </div>
