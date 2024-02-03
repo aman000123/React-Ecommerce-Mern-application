@@ -6,7 +6,7 @@ import toast from "react-hot-toast"
 import { useCart } from '../context/cart'
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { useAuth } from "../context/auth"
-
+import { API } from "../API/endpoint"
 
 ///related-product/:pid/:cid'
 const ProductDetailes = () => {
@@ -20,7 +20,7 @@ const ProductDetailes = () => {
         const getProduct = async () => {
             try {
                 const { data } = await
-                    axios.get(`http://localhost:4004/api/product/get-product/${params.slug}`)
+                    axios.get(`${API}/product/get-product/${params.slug}`)
                 setProduct(data?.product)
                 getSimilerProduct(data?.product._id, data?.product.category._id)
             } catch (error) {
@@ -32,7 +32,7 @@ const ProductDetailes = () => {
 
     const getSimilerProduct = async (pid, cid) => {
         try {
-            const { data } = await axios.get(`http://localhost:4004/api/product/related-product/${pid}/${cid}`)
+            const { data } = await axios.get(`${API}/product/related-product/${pid}/${cid}`)
             // console.log("data in similer", data?.products)
             setRelatedProducts(data?.products)
         } catch (error) {
@@ -55,7 +55,7 @@ const ProductDetailes = () => {
                 <div className="col-md-6 allproducts  " style={{
                     height: '50vh'
                 }}>
-                    <img src={`http://localhost:4004/api/product/product-photo/${product?._id}`} className="card-img-top" alt={product?.name}
+                    <img src={`${API}/product/product-photo/${product?._id}`} className="card-img-top" alt={product?.name}
                         style={{
                             objectFit: 'none', width: '100%', height: '100%', display: "block", margin: "auto"
                         }} /> </div>
@@ -75,7 +75,7 @@ const ProductDetailes = () => {
                 <div className='d-flex flex-wrap'>
                     {relatedProducts?.map(item =>
                         <div className="card m-2 allproducts" style={{ width: '18rem', height: '22rem' }} key={item._id}>
-                            <img src={`http://localhost:4004/api/product/product-photo/${item._id}`} className="card-img-top" alt={item.name}
+                            <img src={`${API}/product/product-photo/${item._id}`} className="card-img-top" alt={item.name}
                                 style={{
                                     objectFit: 'cover', width: '100%', height: '50%', display: "block", margin: "auto"
                                 }} />

@@ -4,6 +4,7 @@ import axios from "axios"
 import '../../style/Authstyle.css'
 import toast from "react-hot-toast"
 import { useNavigate } from "react-router-dom"
+import { API } from "../../API/endpoint"
 const Register = () => {
 
 
@@ -22,7 +23,7 @@ const Register = () => {
         e.preventDefault();
 
         try {
-            const res = await axios.post(`http://localhost:4004/api/register`, {
+            const res = await axios.post(`${API}/register`, {
 
                 name, email, password, phone, address, answer,
             });

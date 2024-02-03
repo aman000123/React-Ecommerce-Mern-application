@@ -5,7 +5,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import toast from "react-hot-toast";
-
+import { API } from "../../API/endpoint";
 const ProductPage = () => {
 
     const [products, setProducts] = useState([])
@@ -14,7 +14,7 @@ const ProductPage = () => {
     const getAllProduct = async () => {
         try {
 
-            const { data } = await axios.get('http://localhost:4004/api/product/get-product');
+            const { data } = await axios.get(`${API}/api/product/get-product`);
             console.log("dtaa get", data)
             setProducts(data?.products)
             toast.success(data?.message)
@@ -47,7 +47,7 @@ const ProductPage = () => {
 
                                 <Link to={`/dashboard/admin/product/${item?.slug}`} key={item?._id} className="product-link">
                                     <div className="card m-2 allproducts" style={{ width: '18rem', height: '19rem' }} key={item._id} >
-                                        <img src={`http://localhost:4004/api/product/product-photo/${item._id}?${new Date().getTime()}`} className="card-img-top" alt={item.name} style={{
+                                        <img src={`${API}/product/product-photo/${item._id}?${new Date().getTime()}`} className="card-img-top" alt={item.name} style={{
                                             objectFit: 'cover', width: '100%', height: '50%', display: "block", margin: "auto"
                                         }} />
 

@@ -19,8 +19,6 @@ const Header = () => {
     const navigat = useNavigate()
 
     const categories = useCategory()
-
-
     const handleLogout = () => {
         setAuth({ ...auth, user: null, token: '' })
         //user me aur bhi things hai 
@@ -48,8 +46,7 @@ const Header = () => {
                                 <Link
                                     className="nav-link dropdown-toggle"
                                     to={"/categories"}
-                                    data-bs-toggle="dropdown"
-                                >
+                                    data-bs-toggle="dropdown" >
                                     Categories
                                 </Link>
                                 <ul className="dropdown-menu">
@@ -77,10 +74,7 @@ const Header = () => {
                                 <li className="nav-item">
                                     <NavLink to="/login" className="nav-link" >Log in</NavLink>
                                 </li>
-
-
                             </>) : (<>
-
                                 <>
                                     <li className="nav-item dropdown">
                                         <NavLink

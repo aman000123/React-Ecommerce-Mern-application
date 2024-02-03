@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Select } from "antd";
+import { API } from "../../API/endpoint";
 
 const { Option } = Select;
 
@@ -26,7 +27,7 @@ const CreateProduct = () => {
 
         try {
             //res ke andar data hota ha destructure
-            const { data } = await axios.get('http://localhost:4004/api/category/get-categories');
+            const { data } = await axios.get(`${API}/category/get-categories`);
             if (data?.success) {
                 setCategories(data?.category);
                 // toast.success(data?.message)
@@ -104,7 +105,7 @@ const CreateProduct = () => {
             productData.append("category", category);
 
 
-            const { data } = axios.post('http://localhost:4004/api/product/create-product', productData);
+            const { data } = axios.post(`${API}/product/create-product`, productData);
 
 
             if (data?.success) {

@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useSearch } from "../../context/search"
 import axios from "axios";
+import { API } from "../../API/endpoint";
 
 const SearchInput = () => {
 
@@ -11,7 +12,7 @@ const SearchInput = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {///search/:keyword
-            const { data } = await axios.get(`http://localhost:4004/api/product/search/${values.keyword}`);
+            const { data } = await axios.get(`${API}/product/search/${values.keyword}`);
             setValues({ ...values, results: data });
             navigate("/search");
         } catch (error) {

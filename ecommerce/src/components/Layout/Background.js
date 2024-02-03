@@ -25,32 +25,27 @@ const Backgrounds = () => {
                         src="/images/pic11.jpg"
                         className="d-block w-100"
                         alt=""
-                        style={{ height: '300px', objectFit: 'cover' }}
-                    />
+                        style={{ height: '300px', objectFit: 'cover' }} />
                 </div>
                 <div>
                     <img
                         src="/images/pic12.jpg"
                         className="d-block w-100"
                         alt=""
-                        style={{ height: '300px', objectFit: 'cover' }}
-                    />
+                        style={{ height: '300px', objectFit: 'cover' }} />
                 </div>
-                <div>
-                    <img
-                        src="/images/pic13.jpg"
-                        className="d-block w-100"
-                        alt=""
-                        style={{ height: '300px', objectFit: 'cover' }}
-                    />
+                <div> <img
+                    src="/images/pic13.jpg"
+                    className="d-block w-100"
+                    alt=""
+                    style={{ height: '300px', objectFit: 'cover' }} />
                 </div>
                 <div>
                     <img
                         src="/images/pexels-sora-shimazaki-5926462.jpg"
                         className="d-block w-100"
                         alt=""
-                        style={{ height: '300px', objectFit: 'cover' }}
-                    />
+                        style={{ height: '300px', objectFit: 'cover' }} />
                 </div>
             </Slider>
         </div>

@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Select } from "antd";
+import { API } from "../../API/endpoint";
+
 
 const { Option } = Select;
 
@@ -26,7 +28,7 @@ const UpdateProduct = () => {
 
     const getSingleProduct = async () => {
         try {
-            const { data } = await axios.get(`http://localhost:4004/api/product/get-product/${params.slug}`)
+            const { data } = await axios.get(`${API}/product/get-product/${params.slug}`)
             setName(data?.product.name)
             setId(data?.product?._id)
             setDescription(data?.product.description)
@@ -44,7 +46,7 @@ const UpdateProduct = () => {
     const getAllCategory = async () => {
         try {
             //res ke andar data hota ha destructure
-            const { data } = await axios.get('http://localhost:4004/api/category/get-categories');
+            const { data } = await axios.get(`${API}/category/get-categories`);
             console.log(data.category)
             if (data?.success) {
                 setCategories(data?.category);
@@ -73,7 +75,6 @@ const UpdateProduct = () => {
             productData.append("quantity", quantity);
             // photo && productData.append("photo", photo);
             productData.append("category", category);
-
             // Check if a new photo is being uploaded
             if (photo) {
                 const allowedImageTypes = ["image/jpeg", "image/png", "image/gif"];
@@ -81,19 +82,15 @@ const UpdateProduct = () => {
                     toast.error("Only image files (JPEG, PNG, GIF) are allowed for Product image");
                     return;
                 }
-
                 const maxSize = 1000000; // 1 MB in bytes
                 if (photo.size > maxSize) {
                     toast.error("Product image should be less than 1 MB");
                     return;
                 }
-
                 // Add the new photo to FormData
                 productData.append("photo", photo);
             }
-            const { data } = axios.put(`http://localhost:4004/api/product/update-product/${id}`, productData);
-
-
+            const { data } = axios.put(`${API}/product/update-product/${id}`, productData);
             if (data?.success) {
                 console.log("data in upload produdt", data)
                 toast.error(data?.error);
@@ -106,20 +103,16 @@ const UpdateProduct = () => {
             toast.error(error.data.message)
         }
     }
-
-
     useEffect(() => {
         getSingleProduct();
     }, [])
 
-
     const handleDeleteProduct = async () => {
-
         try {
             //alert for delete
             let answer = window.prompt('Are you want to delete product?')
             if (answer === 'no' || answer === "") return;
-            const { data } = await axios.delete(`http://localhost:4004/api/product/delete-product/${id}`)
+            const { data } = await axios.delete(`${API}/product/delete-product/${id}`)
             toast.success('Product deleted success Fully')
             navigate("/dashboard/admin/products");
 
@@ -169,7 +162,7 @@ const UpdateProduct = () => {
                                     <div className="text-center">
                                         {/* Display uploaded image if 'photo' exists, otherwise fetch from URL */}
                                         <img
-                                            src={photo ? URL.createObjectURL(photo) : `http://localhost:4004/api/product/product-photo/${id}?${new Date().getTime()}`}
+                                            src={photo ? URL.createObjectURL(photo) : `${API}/product/product-photo/${id}?${new Date().getTime()}`}
                                             alt="Product photo"
                                             height={'200px'}
                                             className="imb img-responsive"
@@ -216,7 +209,6 @@ const UpdateProduct = () => {
                                     <button className="btn btn-primary" onClick={handleUpdateProduct}> Update Product</button>
                                     <button className="btn btn-danger" onClick={handleDeleteProduct}> Delete Product</button>
                                 </div>
-
                             </div>
                         </div>
                     </div>

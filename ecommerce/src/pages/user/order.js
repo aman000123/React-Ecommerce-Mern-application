@@ -4,6 +4,7 @@ import UserMenu from "../../components/Layout/UserMenu"
 import axios from "axios"
 import { useAuth } from "../../context/auth"
 import moment from "moment"
+import { API } from "../../API/endpoint"
 
 const UserOrder = () => {
 
@@ -15,7 +16,7 @@ const UserOrder = () => {
     const getOrders = async () => {
         try {
 
-            const { data } = await axios.get('http://localhost:4004/api/orders')
+            const { data } = await axios.get(`${API}/orders`)
             // console.log("data in orders data", data)
             // console.log("data in orders", data?.orders)
             setOrders(data)
@@ -70,7 +71,7 @@ const UserOrder = () => {
                                                 <div className="row mb-2 p-3 card flex-row" key={i}>
                                                     <div className="col-md-4 allproducts">
                                                         <img
-                                                            src={`http://localhost:4004/api/product/product-photo/${p._id}`}
+                                                            src={`${API}/product/product-photo/${p._id}`}
                                                             className="card-img-top"
                                                             alt={p.name}
                                                             style={{

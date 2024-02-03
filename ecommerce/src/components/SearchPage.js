@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { useCart } from "../context/cart"
 import { useAuth } from "../context/auth"
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import { API } from "../API/endpoint"
 
 
 const SearchPage = () => {
@@ -30,7 +31,7 @@ const SearchPage = () => {
                     <div className='d-flex flex-wrap justify-content-center'>
                         {values?.results.map(item =>
                             <div className="card m-4 allproducts" style={{ width: '18rem', height: '22rem' }} key={item?._id} >
-                                <img src={`http://localhost:4004/api/product/product-photo/${item._id}`} className="card-img-top" alt={item.name}
+                                <img src={`${API}/product/product-photo/${item._id}`} className="card-img-top" alt={item.name}
                                     style={{
                                         objectFit: 'cover', width: '100%', height: '50%', display: "block", margin: "auto"
                                     }} />

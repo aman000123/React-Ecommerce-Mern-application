@@ -5,6 +5,7 @@ import moment from "moment"
 import axios from "axios"
 import { useAuth } from "../../context/auth"
 import { Select } from "antd"
+import { API } from "../../API/endpoint"
 
 
 const { Option } = Select
@@ -25,7 +26,7 @@ const AdminOrder = () => {
     const getOrders = async () => {
         try {
 
-            const { data } = await axios.get('http://localhost:4004/api/Allorders')
+            const { data } = await axios.get(`${API}/Allorders`)
             //   console.log("data in admin orders", data)
             setOrders(data)
 
@@ -42,7 +43,7 @@ const AdminOrder = () => {
         ///order-status/:orderId
         try {
 
-            const { data } = await axios.put(`http://localhost:4004/api/order-status/${orderId}`, {
+            const { data } = await axios.put(`${API}/order-status/${orderId}`, {
                 status: value
             })
             getOrders()
@@ -100,7 +101,7 @@ const AdminOrder = () => {
                                         <div className="row mb-2 p-3 card flex-row" key={p._id}>
                                             <div className="col-md-4 allproducts">
                                                 <img
-                                                    src={`http://localhost:4004/api/product/product-photo/${p._id}`}
+                                                    src={`${API}/product/product-photo/${p._id}`}
                                                     className="card-img-top"
                                                     alt={p.name}
                                                     style={{

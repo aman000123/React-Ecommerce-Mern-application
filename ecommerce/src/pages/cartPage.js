@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import toast from "react-hot-toast"
-
+import { API } from "../API/endpoint"
 const Cart = () => {
 
     const [cart, setCart, removeFromCart, fetchCart] = useCart()
@@ -47,7 +47,7 @@ const Cart = () => {
     const getToken = async () => {
 
         try {
-            const { data } = await axios.get('http://localhost:4004/api/product/braintree/token');
+            const { data } = await axios.get(`${API}/product/braintree/token`);
             //console.log("data?.clientToken", data?.clientToken)
             setClienToken(data?.clientToken)
         } catch (error) {
@@ -69,7 +69,7 @@ const Cart = () => {
             if (!instance) throw new Error("Braintree instance not available");
 
             const { nonce } = await instance.requestPaymentMethod();
-            const { data } = await axios.post("http://localhost:4004/api/product/braintree/payment", {
+            const { data } = await axios.post(`${API}/product/braintree/payment`, {
                 nonce,
                 cart: cart.map(item => item.productId._id),
             });
@@ -133,7 +133,7 @@ const Cart = () => {
                                 {cartItem.productId && (
                                     <div className="col md-4 p-3 allproducts" key={cartItem?.productId?._id}>
                                         <img
-                                            src={`http://localhost:4004/api/product/product-photo/${cartItem.productId._id}`}
+                                            src={`${API}/product/product-photo/${cartItem.productId._id}`}
                                             className="card-img-top"
                                             alt={cartItem.productId.name}
 

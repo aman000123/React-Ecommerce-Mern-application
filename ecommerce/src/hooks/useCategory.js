@@ -3,6 +3,7 @@
 
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { API } from "../API/endpoint";
 
 
 
@@ -14,7 +15,7 @@ export default function useCategory() {
     const getCategories = async () => {
         try {
 
-            const { data } = await axios.get('http://localhost:4004/api/category/get-categories')
+            const { data } = await axios.get(`${API}/category/get-categories`)
             setCategories(data?.category)
         }
         catch (error) {

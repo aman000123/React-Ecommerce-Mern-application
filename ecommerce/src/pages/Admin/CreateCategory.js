@@ -5,6 +5,7 @@ import toast from "react-hot-toast"
 import axios from "axios"
 import CategoryForm from "../../components/Form/categoryForm"
 import { Modal } from "antd";
+import { API } from "../../API/endpoint"
 
 const CreateCategory = () => {
 
@@ -18,7 +19,7 @@ const CreateCategory = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const { data } = await axios.post('http://localhost:4004/api/category/create-category', {
+            const { data } = await axios.post(`${API}/category/create-category`, {
                 name
             })
             if (!name) {
@@ -47,7 +48,7 @@ const CreateCategory = () => {
 
         try {
             //res ke andar data hota ha destructure
-            const { data } = await axios.get('http://localhost:4004/api/category/get-categories');
+            const { data } = await axios.get(`${API}/category/get-categories`);
             if (data?.success) {
                 setCategories(data?.category);
             }
@@ -72,7 +73,7 @@ const CreateCategory = () => {
         try {
 
 
-            const { data } = await axios.put(`http://localhost:4004/api/category/update-category/${selected._id}`, { name: updatedName });
+            const { data } = await axios.put(`${API}/category/update-category/${selected._id}`, { name: updatedName });
 
             if (!updatedName) {
                 toast.error("Please enter the category name")
@@ -102,7 +103,7 @@ const CreateCategory = () => {
 
     const handleDelete = async (id) => {
         try {
-            const { data } = await axios.delete(`http://localhost:4004/api/category/delete-category/${id}`);
+            const { data } = await axios.delete(`${API}/category/delete-category/${id}`);
             if (data.success) {
                 alert("Are you want to delete category?")
                 toast.success(`Category is deleted`)

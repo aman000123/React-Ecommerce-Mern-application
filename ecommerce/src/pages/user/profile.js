@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useAuth } from "../../context/auth";
-
+import { API } from "../../API/endpoint";
 
 
 
@@ -38,7 +38,7 @@ const Profile = () => {
         ///update
 
         try {
-            const { data } = await axios.put(`http://localhost:4004/api/update`, {
+            const { data } = await axios.put(`${API}/update`, {
 
                 name, email, password, phone, address,
             });

@@ -19,7 +19,7 @@ import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
 import ManIcon from '@mui/icons-material/Man';
 import Face4Icon from '@mui/icons-material/Face4';
 import Backgrounds from '../components/Layout/Background';
-
+import { API } from '../API/endpoint';
 
 
 
@@ -57,7 +57,7 @@ const HomePage = () => {
     //get total product count
     const getTotal = async () => {
         try {
-            const { data } = await axios.get('http://localhost:4004/api/product/product-count');
+            const { data } = await axios.get(`${API}/product/product-count`);
             setTotal(data?.total)
         }
         catch (error) {
@@ -67,7 +67,7 @@ const HomePage = () => {
     const getAllCategory = async () => {
         try {
             //res ke andar data hota ha destructure
-            const { data } = await axios.get('http://localhost:4004/api/category/get-categories');
+            const { data } = await axios.get(`${API}/category/get-categories`);
             if (data?.success) {
                 setCategories(data?.category);
             }
@@ -86,7 +86,7 @@ const HomePage = () => {
     const loadMore = async () => {
         try {
             setLoading(true)
-            const { data } = await axios.get(`http://localhost:4004/api/product/product-list/${page}`);
+            const { data } = await axios.get(`${API}/product/product-list/${page}`);
             setLoading(false)
             setProducts([...products, ...data?.products])
         } catch (error) {
@@ -111,7 +111,7 @@ const HomePage = () => {
     const getAllProduct = async () => {
         try {
             setLoading(true)
-            const { data } = await axios.get(`http://localhost:4004/api/product/product-list/${page}`)
+            const { data } = await axios.get(`${API}/product/product-list/${page}`);
             setLoading(false)
             setProducts(data?.products)
             console.log("data in home page", data.products)
@@ -142,7 +142,7 @@ const HomePage = () => {
     const filterProduct = async () => {
         ///product-filter data
         try {
-            const { data } = await axios.post('http://localhost:4004/api/product/product-filter', {
+            const { data } = await axios.post(`${API}/product/product-filter`, {
                 checked, radio
             })
 
@@ -200,7 +200,7 @@ const HomePage = () => {
                             {products?.map(item =>
                                 <div className="card m-2 allproducts" style={{ width: '16rem', height: '19rem' }}
                                     key={item?._id} >
-                                    <img src={`http://localhost:4004/api/product/product-photo/${item._id}`} className="card-img-top" alt={item.name}
+                                    <img src={`${API}/product/product-photo/${item._id}`} className="card-img-top" alt={item.name}
                                         style={{
                                             objectFit: 'cover', width: '100%', height: '50%', display: "block", margin: "auto"
                                         }} />

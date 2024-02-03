@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { useCart } from "../context/cart"
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { useAuth } from "../context/auth"
+import { API } from "../API/endpoint"
 
 const SingleCategoryProduct = () => {
     //'/product-category/:slug'
@@ -20,7 +21,7 @@ const SingleCategoryProduct = () => {
 
         try {
             const { data } =
-                await axios.get(`http://localhost:4004/api/product/product-category/${params.slug}`)
+                await axios.get(`${API}/product/product-category/${params.slug}`)
             // console.log("data?.productsdata?.products", data?.category, data?.products)
             setProduct(data?.products)
             setCategory(data?.category)
@@ -52,7 +53,7 @@ const SingleCategoryProduct = () => {
                         {product?.map(item =>
                             // <Link to={`/dashboard/admin/product/${item?.slug}`} key={item?._id} className="product-link">
                             <div className="card m-2 allproducts" style={{ width: '16rem', height: "19rem" }} key={item._id} >
-                                <img src={`http://localhost:4004/api/product/product-photo/${item._id}`} className="card-img-top" alt={item.name}
+                                <img src={`${API}/product/product-photo/${item._id}`} className="card-img-top" alt={item.name}
                                     style={{
                                         objectFit: 'cover', width: '100%', height: '50%', display: "block", margin: "auto"
                                     }} />

@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState, useEffect, useContext, createContext } from "react";
 import { useAuth } from "./auth";
 import toast from "react-hot-toast";
+import { API } from "../API/endpoint";
 
 const CartContext = createContext();
 
@@ -17,7 +18,7 @@ const CartProvider = ({ children }) => {
     const addToCart = async (productId) => {
         try {
             // console.log("id in context", productId, userId)
-            const response = await axios.post(`http://localhost:4004/api/cart/cartAdd/${userId}`, {
+            const response = await axios.post(`${API}/cart/cartAdd/${userId}`, {
                 productId,
                 quantity: 1, // Assuming you're adding one quantity at a time
             });
@@ -41,7 +42,7 @@ const CartProvider = ({ children }) => {
 
     const fetchCart = async () => {
         try {
-            const response = await axios.get(`http://localhost:4004/api/cart/getCart/${userId}`);
+            const response = await axios.get(`${API}/cart/getCart/${userId}`);
             if (response.data?.cart) {
                 setCart(response.data?.cart?.items);
                 // Assuming cart.items contains the items array
@@ -63,7 +64,7 @@ const CartProvider = ({ children }) => {
 
     const removeFromCart = async (productId) => {
         try {
-            const response = await axios.delete(`http://localhost:4004/api/cart/cartDelete/${userId}/${productId}`);
+            const response = await axios.delete(`${API}/cart/cartDelete/${userId}/${productId}`);
             if (response.data.success) {
                 const updatedCart = cart.filter(item => item.productId !== productId);
                 setCart(updatedCart);
