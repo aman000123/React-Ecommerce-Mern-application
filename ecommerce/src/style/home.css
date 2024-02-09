@@ -109,8 +109,27 @@
         display: none;
     }
 
+    .catIcon svg {
+        font-size: 1.9rem !important;
+    }
+
     /* Show category name on hover */
     /* .cat:hover .catName {
         display: inline-block;
     } */
+    .catPrice {
+        font-size: 1rem;
+    }
+
+    .reset {
+        /* font-size: 25px !important; */
+    }
+
+    .selectPrice {
+        justify-content: center !important;
+    }
+
+    .Price {
+        margin-left: unset !important;
+    }
 }

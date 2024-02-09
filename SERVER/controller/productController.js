@@ -70,9 +70,6 @@ export const createProduct = async (req, res) => {
 
 
 export const getAllProductController = async (req, res) => {
-
-
-
     try {
 
         const products = await productModel.find({}).populate('category').select("-photo").limit(12).sort({ createdAt: -1 })
@@ -85,7 +82,6 @@ export const getAllProductController = async (req, res) => {
             products,
 
         })
-
     }
     catch (error) {
         console.log("error in getting all produt", error);

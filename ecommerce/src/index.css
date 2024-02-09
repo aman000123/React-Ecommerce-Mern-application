@@ -10,6 +10,38 @@ body {
   overflow-x: hidden;
 }
 
+/* Adjusting gutter spacing in Bootstrap grid */
+/* .container,
+.container-fluid
+
+/* .container-lg,
+.container-md,
+.container-sm,
+.container-xl,
+.container-xxl { 
+  {
+  margin: unset !important
+} */
+
+/* 
+.row {
+  margin-right: -0.75rem;
+  margin-left: -0.75rem;
+}
+
+.col {
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+}
+
+.row {
+  margin-top: 0;
+  margin-bottom: 0;
+} */
+
+
+
+
 /* font-family: 'Poppins', sans-serif; */
 /* font-family: 'Playfair Display', serif; */
 
@@ -183,4 +215,29 @@ body {
 
 .allproducts .card-body {
   padding: 9px !important;
+}
+
+.brandsName {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .allproducts {
+    width: 20rem !important;
+  }
+
+  .navBars {
+    justify-content: space-between !important;
+    flex-direction: row-reverse;
+  }
+
+  .brandsName {
+    display: block;
+  }
+
+  .responsive-brand {
+    display: none !important;
+    background: red !important;
+  }
+
 }

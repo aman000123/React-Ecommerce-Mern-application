@@ -7,7 +7,7 @@ import toast from 'react-hot-toast'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
 import { Prices } from '../components/Prices'
-import { Checkbox, Radio } from 'antd'
+import { Checkbox, Radio, Select } from 'antd'
 import { useCart } from '../context/cart'
 import '../style/home.css'
 import LockResetIcon from '@mui/icons-material/LockReset';
@@ -20,11 +20,7 @@ import ManIcon from '@mui/icons-material/Man';
 import Face4Icon from '@mui/icons-material/Face4';
 import Backgrounds from '../components/Layout/Background';
 import { API } from '../API/endpoint';
-
-
-
-
-
+const { Option } = Select;
 
 const categoryIcons = {
     Kids: <ChildCareIcon style={{ fontSize: '2.5rem' }} />,
@@ -104,10 +100,13 @@ const HomePage = () => {
         }
         setChecked(all);
     };
+
     useEffect(() => {
         getAllCategory()
         getTotal()
     }, [])
+
+
     const getAllProduct = async () => {
         try {
             setLoading(true)
@@ -137,7 +136,6 @@ const HomePage = () => {
 
     }, [checked, radio])
 
-
     //get filter products 
     const filterProduct = async () => {
         ///product-filter data
@@ -149,17 +147,26 @@ const HomePage = () => {
             setProducts(data?.filterProduct)
 
         } catch (error) {
-            console.log("error in filter product")
+            console.log("error in filter product", error)
 
         }
     }
-
 
     const handleAddToCart = (productId) => {
         // console.log("id products in home page", productId)
         addToCart(productId);
     };
 
+    const handlePriceChange = (selectedIndex) => {
+        console.log("Selected index:", selectedIndex);
+        if (selectedIndex !== undefined && selectedIndex !== null) {
+            const selectedPrice = Prices[selectedIndex];
+            console.log("Selected price range:", selectedPrice);
+            setRadio(selectedPrice.array);
+        } else {
+            console.log("No value selected");
+        }
+    }
     return (
         <Layout title={"All Products- Best Offers"}>
             <Backgrounds />
@@ -167,25 +174,35 @@ const HomePage = () => {
                 <div className='row mt-4'>
                     <div className='col-md-12'>
                         {/* <h6 className=''>Filter Product by Category</h6> */}
-                        <div className='d-flex  flex-row cat   justify-content-end'>
+                        <div className='d-flex  flex-row cat   justify-content-end selectPrice'>
                             {categories?.map((c) => (
                                 <Checkbox key={c._id} onChange={(e) => handleFilter(e.target.checked, c._id)}>
-                                    {categoryIcons[c.name]} <span className='catName'>{c.name}</span>
+                                    <span className='catIcon'>{categoryIcons[c.name]}</span> <span className='catName'>{c.name}</span>
                                 </Checkbox>
                             ))}
                         </div>
                         {/* <h6 className='mt-4'>Filter Product by Price</h6> */}
-                        <div className='col-md-12 d-flex flex-row align-items-center justify-content-end mt-3'>
+                        <div className='col-md-12 d-flex flex-row align-items-center justify-content-end mt-3 selectPrice'>
+                            {window.innerWidth < 769 ? (
+                                <select defaultValue="Select Price Range"
+                                    style={{ width: 200, padding: "4px" }} onChange={(e) => handlePriceChange(e.target.value)}>
+                                    <option disabled>Select Price Range</option>
+                                    {Prices.map((p, index) => (
+                                        <option key={p._id} value={index}>{p.name}</option>
+                                    ))}
+                                </select>
+                            ) : (
+                                <Radio.Group className='d-flex' onChange={e => setRadio(e.target.value)}>
+                                    {Prices.map(p => (
+                                        <div key={p._id} className="ms-3 Price">
+                                            <Radio value={p.array}><span className='catPrice'>{p.name}</span></Radio>
+                                        </div>
+                                    ))}
+                                </Radio.Group>
+                            )}
 
-                            <Radio.Group className='d-flex' onChange={e => setRadio(e.target.value)}>
-                                {Prices.map(p => (
-                                    <div key={p._id} className="ms-3">
-                                        <Radio value={p.array}>{p.name}</Radio>
-                                    </div>
-                                ))}
-                            </Radio.Group>
                             <LockResetIcon style={{ cursor: "pointer", fontSize: "37px" }} onClick={() => window.location.reload()}
-                                className=''>
+                                className='reset'>
                             </LockResetIcon>
                         </div>
 

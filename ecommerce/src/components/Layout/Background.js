@@ -11,14 +11,14 @@ const Backgrounds = () => {
         speed: 1000,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: true,
+        //  autoplay: true,
         autoplaySpeed: 2000,
         centerMode: true,
         centerPadding: '0',
     };
 
     return (
-        <div className="slider-container" style={{ width: '100vw', margin: '0 auto' }}>
+        <div className="slider-container customSlides" style={{ width: '100vw', margin: '0 auto', padding: '0px' }}>
             <Slider {...settings}>
                 <div>
                     <img
