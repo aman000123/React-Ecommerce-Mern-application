@@ -131,7 +131,7 @@ const CreateCategory = () => {
                         <div className="p-3 w-50" >
                             <CategoryForm handleSubmit={handleSubmit} value={name} setValue={setName} />
                         </div>
-                        <div className="w-75">
+                        <div className="w-75 catDiv">
                             <table className="table">
                                 <thead>
                                     <tr>
@@ -147,7 +147,7 @@ const CreateCategory = () => {
                                             <>
 
                                                 <td >{c.name}</td>
-                                                <td><button className="btn btn-primary ms-2"
+                                                <td className="catEdit"><button className="btn btn-primary ms-2"
                                                     onClick={() => {
                                                         setVisible(true);
                                                         setUpdatedName(c.name);

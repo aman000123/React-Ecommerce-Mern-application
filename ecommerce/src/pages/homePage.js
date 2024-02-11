@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Layout from '../components/Layout/Layout'
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import ChangeCircleIcon from '@mui/icons-material/ChangeCircle';
 import { useAuth } from '../context/auth'
 import toast from 'react-hot-toast'
 import axios from 'axios'
@@ -20,7 +19,7 @@ import ManIcon from '@mui/icons-material/Man';
 import Face4Icon from '@mui/icons-material/Face4';
 import Backgrounds from '../components/Layout/Background';
 import { API } from '../API/endpoint';
-const { Option } = Select;
+
 
 const categoryIcons = {
     Kids: <ChildCareIcon style={{ fontSize: '2.5rem' }} />,

@@ -129,9 +129,9 @@ const CreateProduct = () => {
                         <div className="col-md-3">
                             <Adminmenu />
                         </div>
-                        <div className="col-md-9">
+                        <div className="col-md-9 mt-3">
                             <h1>Create Product</h1>
-                            <div className="m-1 w-75">
+                            <div className="m-1 w-75 creatrProAll">
                                 <Select bordered={false} placeholder="Select A category" size="large" showSearch
                                     className="form-select mb-3" onChange={(value) => { setCategory(value) }}>{
                                         categories?.map(c => (

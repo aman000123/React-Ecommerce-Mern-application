@@ -4,6 +4,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: math;
+
 }
 
 body {
@@ -60,6 +62,8 @@ body {
   position: sticky;
   top: 0px;
   z-index: 99;
+  width: 100vw !important;
+  padding: 12px 20px;
 }
 
 .toast-notification {
@@ -203,6 +207,7 @@ body {
 
 .allproducts {
   transition: transform 0.2s ease-in-out;
+  box-shadow: 0 0px 4px rgba(0, 0, 0, 0.9);
 }
 
 .cartProducts p {
@@ -219,6 +224,10 @@ body {
 
 .brandsName {
   display: none;
+}
+
+.unset {
+  box-shadow: none !important;
 }
 
 @media (max-width: 768px) {
@@ -240,4 +249,56 @@ body {
     background: red !important;
   }
 
+  .singleProductDetails {
+    margin: auto;
+    border-radius: 5px;
+    width: 100%;
+    box-shadow: 0 0px 4px rgba(0, 0, 0, 0.9);
+  }
+
+  .similerPro {
+    margin: auto;
+    box-shadow: 0 0px 4px rgba(0, 0, 0, 0.9);
+    border-radius: 5px;
+    justify-content: center;
+
+    width: 100%;
+
+  }
+
+  .catEdit {
+    display: flex;
+  }
+
+  .catDiv {
+    margin: auto;
+  }
+
+  .catForm {
+    display: flex;
+    width: 100vw;
+  }
+
+  .allPro {
+    justify-content: center;
+  }
+
+  .creatrProAll {
+    margin: auto;
+  }
+
+  .userDashboard {
+    margin-top: 25px;
+  }
+
+  .form-container {
+    margin-top: 40px !important;
+  }
+}
+
+@media (max-width: 426px) {
+  .navbar {
+    width: 100 vw !important;
+    background-color: red;
+  }
 }
