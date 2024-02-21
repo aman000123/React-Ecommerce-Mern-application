@@ -168,7 +168,7 @@ const HomePage = () => {
     }
     return (
         <Layout title={"All Products- Best Offers"}>
-            <Backgrounds />
+            {/* <Backgrounds /> */}
             <div className='container'>
                 <div className='row mt-4'>
                     <div className='col-md-12'>

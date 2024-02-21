@@ -230,6 +230,20 @@ body {
   box-shadow: none !important;
 }
 
+
+.similerPro {
+  margin: auto;
+
+}
+
+.cartProductsPrice .allproducts {
+  box-shadow: unset !important
+}
+
+.userorders .allproducts {
+  box-shadow: unset !important;
+}
+
 @media (max-width: 768px) {
   .allproducts {
     width: 20rem !important;
@@ -253,12 +267,14 @@ body {
     margin: auto;
     border-radius: 5px;
     width: 100%;
-    box-shadow: 0 0px 4px rgba(0, 0, 0, 0.9);
+    /* box-shadow: 0 0px 4px rgba(0, 0, 0, 0.9); */
+    align-items: center;
+    margin: auto;
   }
 
   .similerPro {
     margin: auto;
-    box-shadow: 0 0px 4px rgba(0, 0, 0, 0.9);
+    /* // box-shadow: 0 0px 4px rgba(0, 0, 0, 0.9); */
     border-radius: 5px;
     justify-content: center;
 
@@ -300,5 +316,204 @@ body {
   .navbar {
     width: 100 vw !important;
     background-color: red;
+  }
+}
+
+@media screen and (max-width:1500px) {
+  .allproducts {
+    align-self: center;
+    justify-content: center;
+  }
+
+  .similerPro,
+  .singleProductDetails {
+    margin: auto;
+  }
+
+
+  .similerPro .allproducts p,
+  h5 {
+    margin-bottom: 3px !important;
+  }
+
+  .similerPro .allproducts {
+    height: 17rem !important;
+    width: 13rem !important;
+  }
+
+  .cartProductsPrice .allproducts {
+
+    box-shadow: unset !important
+  }
+
+
+  .userorders .allproducts {
+    box-shadow: unset !important;
+  }
+
+}
+
+@media screen and (max-width:1024px) {
+  .allproducts {
+    /* background-color: red; */
+    align-self: center;
+    justify-content: center;
+  }
+
+  .similerPro .allproducts p,
+  h5 {
+    margin-bottom: 3px !important;
+  }
+
+  .similerPro .allproducts {
+    height: 17rem !important;
+  }
+
+  .cartProductsPrice .allproducts {
+
+    box-shadow: unset !important
+  }
+}
+
+@media screen and (max-width:768px) {
+  .similerPro .allproducts {
+    /* background-color: burlywood; */
+    height: 17rem !important;
+    align-self: center;
+    justify-content: center;
+    width: 14rem !important;
+    /* border: 2px solid black; */
+
+  }
+
+  .unset {
+
+    width: 100% !important;
+  }
+
+  .singleProductDetails {
+    width: 100% !important;
+    margin: auto;
+  }
+
+  .singleProductDetails {
+    height: 100vh !important;
+  }
+
+  .productContent {
+    height: 40vh !important;
+    margin: auto;
+  }
+
+  .similerPro .allproducts p,
+  h5 {
+    margin-bottom: 3px !important;
+  }
+
+  .cartProductsPrice .allproducts {
+
+    box-shadow: unset !important
+  }
+
+
+  .userorders .card {
+    flex-direction: column !important;
+  }
+
+  .userorders .description p,
+  h5 {
+    margin-bottom: 3px !important;
+  }
+}
+
+
+@media screen and (max-width:350px) {}
+
+@media screen and (max-width:640px) {
+  .allproducts {
+
+    /* background-color: yellow; */
+
+  }
+
+  .similerPro .allproducts p,
+  h5 {
+    margin-bottom: 3px !important;
+  }
+
+  .similerPro .allproducts {
+    height: 17rem !important;
+  }
+
+  .similerPro .relatedProducts {
+    justify-content: center;
+  }
+
+  .relatedProducts .allproducts {
+    width: 20rem !important;
+  }
+
+  .cartProductsPrice .allproducts {
+    height: 9rem !important;
+    box-shadow: unset !important;
+  }
+
+  .productContent {
+    height: unset !important;
+  }
+
+  .singleProductDetails {
+    height: unset !important;
+  }
+}
+
+@media screen and (max-width:475px) {
+  .allproducts {
+    width: 20rem !important;
+    height: 18rem !important;
+    box-shadow: unset !important;
+
+  }
+
+  .cartProducts p {
+    margin-bottom: 3px !important;
+  }
+
+  .cartProductsPrice {
+    flex-direction: column;
+  }
+
+  .similerPro .allproducts p,
+  h5 {
+    margin-bottom: 3px !important;
+  }
+
+  .similerPro .allproducts {
+    height: 17rem !important;
+
+  }
+
+  .cartPages {
+    flex-direction: column !important;
+  }
+
+  .cartPages p {
+    margin-bottom: 3px;
+  }
+
+  .allproducts img {
+    width: 18opx !important;
+  }
+
+  .productsPrice {
+    text-align: center !important;
+  }
+
+  .productContent {
+    height: unset !important;
+  }
+
+  .singleProductDetails {
+    height: unset !important;
   }
 }

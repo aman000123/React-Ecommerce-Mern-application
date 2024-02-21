@@ -51,7 +51,7 @@ const ProductDetailes = () => {
 
     return (
         <Layout title={"Product details"}>
-            <div className="row container mt-4 singleProductDetails"  >
+            <div className="row container mt-4 m-auto singleProductDetails"  >
                 <div className="col-md-6 allproducts unset " style={{
                     height: '50vh'
                 }}>
@@ -59,7 +59,7 @@ const ProductDetailes = () => {
                         style={{
                             objectFit: 'none', width: '100%', height: '100%', display: "block", margin: "auto"
                         }} /> </div>
-                <div className="col-md-6 mt-5" style={{ height: '50vh' }}>
+                <div className="col-md-6 mt-5 productContent" style={{ height: '50vh' }}>
                     {/* <h4 className="text-center">Product Details</h4> */}
                     <h5>Product Name:{product?.name}</h5>
                     <h6>Category:{product?.category.name}</h6>
@@ -72,7 +72,7 @@ const ProductDetailes = () => {
             <div className="row  container similerPro">
                 <h5 className="text-center mt-3">Similer Product</h5>
                 {relatedProducts?.length < 1 && (<p className="text-center">No Similer product found</p>)}
-                <div className='d-flex flex-wrap'>
+                <div className='d-flex flex-wrap relatedProducts'>
                     {relatedProducts?.map(item =>
                         <div className="card m-2 allproducts " style={{ width: '18rem', height: '22rem' }} key={item._id}>
                             <img src={`${API}/product/product-photo/${item._id}`} className="card-img-top" alt={item.name}

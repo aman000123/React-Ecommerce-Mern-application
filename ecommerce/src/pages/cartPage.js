@@ -125,10 +125,10 @@ const Cart = () => {
                 </div>
 
 
-                <div className="row">
+                <div className="row cartProductsPrice">
                     <div className="col md-8">
                         {cart?.map(cartItem => (
-                            <div className="row mb-2 card flex-row p-3  " key={cartItem?.productId?._id}>
+                            <div className="row mb-2 card flex-row p-3  cartPages" key={cartItem?.productId?._id}>
                                 {/* Check if productId exists */}
                                 {cartItem.productId && (
                                     <div className="col md-4 p-3 allproducts" key={cartItem?.productId?._id}>
@@ -142,7 +142,7 @@ const Cart = () => {
                                             }} />
                                     </div>
                                 )}
-                                <div className="col md-8">
+                                <div className="col md-8 productsPrice">
                                     {/* Check if productId exists */}
                                     {cartItem.productId && (
                                         <>

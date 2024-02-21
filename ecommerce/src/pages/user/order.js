@@ -35,7 +35,7 @@ const UserOrder = () => {
 
             <Layout title={"User Order"}>
                 <div className="container fluid p-3 m-3">
-                    <div className="row">
+                    <div className="row ">
                         <div className="col-md-3">
                             <UserMenu />
                         </div>
@@ -66,7 +66,7 @@ const UserOrder = () => {
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <div className="container">
+                                        <div className="container  userorders">
                                             {o?.products?.map((p, i) => (
                                                 <div className="row mb-2 p-3 card flex-row" key={i}>
                                                     <div className="col-md-4 allproducts">
@@ -79,7 +79,7 @@ const UserOrder = () => {
                                                             }}
                                                         />
                                                     </div>
-                                                    <div className="col-md-8">
+                                                    <div className="col-md-8 description">
                                                         <p>{p.name}</p>
                                                         <p>{p.description.substring(0, 30)}</p>
                                                         <p>Price : {p.price}</p>
