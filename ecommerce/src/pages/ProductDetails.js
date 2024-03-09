@@ -1,6 +1,6 @@
 import axios from "axios"
 import Layout from "../components/Layout/Layout"
-import { json, useParams } from "react-router-dom"
+import { json, useNavigate, useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import toast from "react-hot-toast"
 import { useCart } from '../context/cart'
@@ -13,6 +13,7 @@ const ProductDetailes = () => {
     const [cart, addToCart] = useCart();
     const [auth] = useAuth()
     const [relatedProducts, setRelatedProducts] = useState([])
+    const navigate = useNavigate()
 
     const params = useParams()
     const [product, setProduct] = useState()
@@ -85,8 +86,13 @@ const ProductDetailes = () => {
                                 <p className="card-text">Price-{item.price}Rs</p>
 
 
-                                {auth?.token && (
+                                {auth?.token ? (
                                     <AddShoppingCartIcon onClick={() => handleAddToCart(item._id)} style={{ cursor: "pointer" }}>
+                                    </AddShoppingCartIcon>
+                                ) : (
+                                    <AddShoppingCartIcon onClick={() => navigate('/login', {
+                                        state: '/'
+                                    })} style={{ cursor: "pointer" }}>
 
                                     </AddShoppingCartIcon>
 

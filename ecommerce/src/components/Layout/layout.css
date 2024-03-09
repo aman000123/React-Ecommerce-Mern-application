@@ -9,9 +9,9 @@
     margin-left: -13px !important;
 }
 
-.slick-next {
+/* .slick-next {
     right: unset !important;
-}
+} */
 
 .slick-prev {
     left: unset !important;
@@ -29,6 +29,9 @@
     margin-left: auto !important;
 }
 
+.slick-arrow .slick-next {
+    display: none !important;
+}
 
 .sliders .slick-slider {
     --bs-gutter-x: -0.5rem !important;
@@ -50,6 +53,17 @@
     object-fit: cover;
 }
 
+@media (max-width: 1024px) {
+    .sliders {
+        height: 120px !important;
+
+    }
+
+    .sliders img {
+        height: 120px !important;
+    }
+
+}
 
 @media (max-width: 426px) {
     .slider-container .slick-list {
@@ -88,17 +102,27 @@
         margin-left: auto;
     }
 
+    .sliders {
+        height: 120px !important;
+
+    }
+
+    .sliders img {
+        height: 120px !important;
+    }
+
 }
 
 /* Laptop-specific styles */
 @media (max-width: 768px) {
-    .slider-container .slick-list {
-        height: 300px;
+    .sliders {
+        height: 120px !important;
     }
 
     .slider-container img {
         height: 100%;
         object-fit: cover;
+        height: 120px !important;
     }
 
 
@@ -128,5 +152,32 @@
         padding-left: calc(var(--bs-gutter-x) * .5);
         margin-right: auto;
         margin-left: auto;
+    }
+
+    .sliders {
+        height: 120px !important;
+
+    }
+
+    .sliders img {
+        height: 120px !important;
+    }
+}
+
+
+
+
+
+
+
+
+@media (max-width: 368px) {
+    .sliders {
+        height: 120px !important;
+
+    }
+
+    .sliders img {
+        height: 120px !important;
     }
 }

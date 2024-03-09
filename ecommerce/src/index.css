@@ -212,10 +212,14 @@ body {
 
 .cartProducts p {
   margin-bottom: 10px !important;
+  font-size: 14px;
 }
 
 .cartProducts h5 {
   margin-bottom: 0px !important;
+  font-size: 16px;
+  font-weight: 600;
+
 }
 
 .allproducts .card-body {
@@ -316,6 +320,12 @@ body {
   .navbar {
     width: 100 vw !important;
     background-color: red;
+    padding: 12px;
+
+  }
+
+  .navBars {
+    /* flex-wrap: unset !important; */
   }
 }
 
@@ -373,6 +383,10 @@ body {
 
     box-shadow: unset !important
   }
+
+  .main {
+    height: 100vh !important;
+  }
 }
 
 @media screen and (max-width:768px) {
@@ -424,10 +438,18 @@ body {
   h5 {
     margin-bottom: 3px !important;
   }
+
+  .main {
+    height: 100vh !important;
+  }
 }
 
 
-@media screen and (max-width:350px) {}
+@media screen and (max-width:350px) {
+  .main {
+    height: 100vh !important;
+  }
+}
 
 @media screen and (max-width:640px) {
   .allproducts {
@@ -464,6 +486,10 @@ body {
 
   .singleProductDetails {
     height: unset !important;
+  }
+
+  .main {
+    height: 100vh !important;
   }
 }
 
@@ -516,4 +542,40 @@ body {
   .singleProductDetails {
     height: unset !important;
   }
+
+  .cat {
+    flex-wrap: wrap !important;
+  }
+
+  .main {
+    height: 100vh !important;
+  }
+
+}
+
+@media screen and (max-width:370px) {
+  .navbar-brand {
+    letter-spacing: unset !important;
+  }
+
+  .catName {
+    font-size: 10px !important;
+    font-weight: 500;
+  }
+
+  .main {
+    height: 100vh !important;
+  }
+}
+
+@media screen and (max-width:320px) {
+  .catName {
+    font-size: 8px !important;
+    font-weight: 500;
+  }
+
+  .main {
+    height: 100vh !important;
+  }
+
 }

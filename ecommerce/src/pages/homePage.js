@@ -35,9 +35,6 @@ const categoryIcons = {
 
 const HomePage = () => {
 
-
-
-
     const navigate = useNavigate()
     const [cart, addToCart] = useCart();
     const [auth, setAuth] = useAuth()
@@ -49,6 +46,21 @@ const HomePage = () => {
     const [loading, setLoading] = useState(false)
     const [total, setTotal] = useState(0)
     const [page, setPage] = useState(1)
+
+    const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 769);
+
+    const handleResize = () => {
+        setIsSmallScreen(window.innerWidth < 769);
+    };
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     //get total product count
     const getTotal = async () => {
         try {
@@ -168,7 +180,7 @@ const HomePage = () => {
     }
     return (
         <Layout title={"All Products- Best Offers"}>
-            {/* <Backgrounds /> */}
+            <Backgrounds />
             <div className='container'>
                 <div className='row mt-4'>
                     <div className='col-md-12'>
@@ -182,9 +194,8 @@ const HomePage = () => {
                         </div>
                         {/* <h6 className='mt-4'>Filter Product by Price</h6> */}
                         <div className='col-md-12 d-flex flex-row align-items-center justify-content-end mt-3 selectPrice'>
-                            {window.innerWidth < 769 ? (
-                                <select defaultValue="Select Price Range"
-                                    style={{ width: 200, padding: "4px" }} onChange={(e) => handlePriceChange(e.target.value)}>
+                            {isSmallScreen ? (
+                                <select defaultValue="Select Price Range" style={{ width: 200, padding: "4px" }} onChange={(e) => handlePriceChange(e.target.value)}>
                                     <option disabled>Select Price Range</option>
                                     {Prices.map((p, index) => (
                                         <option key={p._id} value={index}>{p.name}</option>
@@ -227,7 +238,7 @@ const HomePage = () => {
                                         <div className='details'>
                                             <button className="btn btn-primary ms-1"
                                                 onClick={() => navigate(`/product/${item.slug}`)}
-                                            >See Details</button>
+                                            >More Info</button>
                                             {auth?.token ? (
                                                 <AddShoppingCartIcon onClick={() => handleAddToCart(item._id)} style={{ cursor: "pointer" }}>
 
