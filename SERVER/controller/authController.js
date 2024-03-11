@@ -11,10 +11,10 @@ export const registerController = async (req, res) => {
 
     try {
 
-        const { name, email, password, phone, address, answer } = req.body
+        const { name, email, password, phone, address } = req.body
 
         //validation 
-        if (!name || !email || !password || !phone || !address || !answer) {
+        if (!name || !email || !password || !phone || !address) {
             return res.status(500).send({ message: 'Please fill in all fields' });
         }
 
@@ -32,7 +32,7 @@ export const registerController = async (req, res) => {
         const hash = await hashPassword(password)
 
         //save record 
-        const user = await new userModel({ name, email, phone, address, password: hash, answer }).save()
+        const user = await new userModel({ name, email, phone, address, password: hash }).save()
         res.status(200).send({
             success: true,
             message: "User registerd suucess",
@@ -123,22 +123,18 @@ export const forgotPasswordControler = async (req, res) => {
     //get email first from user
     try {
 
-        const { email, answer, newPassword } = req.body
-
+        const { email, newPassword } = req.body
         if (!email) {
             res.status(400).send({ message: 'Email is required' })
         }
 
-        if (!answer) {
-            res.status(400).send({ message: 'Answer is required' })
-        }
 
         if (!newPassword) {
             res.status(400).send({ message: 'NewPassword is required' })
         }
 
         //check email and passw
-        const user = await userModel.findOne({ email: email, answer: answer })
+        const user = await userModel.findOne({ email: email })
         if (!user) {
             res.status(400).send({ success: false, message: 'Wrong email or Answer' })
         }
@@ -289,3 +285,9 @@ export const orderStatusController = async (req, res) => {
             error)
     }
 }
+
+
+
+
+
+

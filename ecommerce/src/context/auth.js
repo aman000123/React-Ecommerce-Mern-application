@@ -9,8 +9,12 @@ const AuthProvider = ({ children }) => {
 
     const [auth, setAuth] = useState({
 
-        user: null, token: ""
+        user: null, token: "",
+
     })
+    const [email, setEmail] = useState("")
+    const [otp, setOtp] = useState(null);
+    const [OTPinput, setOTPinput] = useState([" "]);
 
     //set token in headers
     axios.defaults.headers.common['Authorization'] = auth?.token
@@ -27,11 +31,12 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
 
+    return (
+        <AuthContext.Provider value={[auth, setAuth, otp, setOtp, OTPinput, setOTPinput, email, setEmail]}>
+            {children}
+        </AuthContext.Provider>
+    );
 
-    return <AuthContext.Provider value={[auth, setAuth]}>
-        {/* //now we can use auth and set auth anywhere */}
-        {children}
-    </AuthContext.Provider>
 
 }
 

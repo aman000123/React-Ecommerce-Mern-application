@@ -26,6 +26,8 @@ import AllCategoryPage from "./pages/categories";
 import SingleCategoryProduct from "./pages/SinglecategoryProduct";
 import Cart from "./pages/cartPage";
 import AdminOrder from "./pages/Admin/AdminOrders";
+import EnterOtp from "./pages/Auth/enterOtp";
+import CreateNewPassword from "./pages/Auth/createNewPassword";
 
 
 
@@ -60,6 +62,9 @@ function App() {
         <Route path="/policy" element={<Policy />}></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="/login" element={<Login />}></Route>
+        <Route path="/reset-password" element={<CreateNewPassword />}></Route>
+        <Route path="/enter-otp" element={<EnterOtp />}></Route>
+
 
         <Route path="/forgetpassword" element={<ForgotPassword />}></Route>
         <Route path="*" element={<PageNotFound />}></Route>

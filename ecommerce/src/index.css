@@ -195,6 +195,26 @@ body {
 }
 
 
+.otpInput {
+  width: 300px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 79px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.otpInput button {
+  padding: 2px 0px;
+  background: black;
+  color: white;
+
+}
+
+
+
 /* .allproducts:hover {
   transform: scale(1.1);
 } */

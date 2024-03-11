@@ -15,27 +15,7 @@ const Backgrounds = () => {
         autoplaySpeed: 5000,
         centerMode: true,
         centerPadding: '0',
-        // responsive: [
-        //     {
-        //         breakpoint: 1024, // Change this value as per your requirements
-        //         settings: {
-        //             slidesToShow: 1,
-        //             slidesToScroll: 1,
-        //             slidesToShow: 1,
-        //             centerMode: true,
-        //             centerPadding: '0',
-        //         }
-        //     },
-        //     {
-        //         breakpoint: 768, // Change this value as per your requirements
-        //         settings: {
-        //             slidesToShow: 1,
-        //             slidesToScroll: 4,
-        //             centerMode: false,
-        //         }
-        //     }
-        // Add more breakpoints if needed
-        //]
+
     };
 
     return (

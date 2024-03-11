@@ -3,86 +3,64 @@ import Layout from "./../../components/Layout/Layout";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import '../../style/Authstyle.css'
+import '../../style/Authstyle.css';
 import { API } from "../../API/endpoint";
+import { useAuth } from "../../context/auth";
 
-
-
-const ForgotPassword = () => {
-    const [email, setEmail] = useState("");
-    const [newPassword, setNewPassword] = useState("");
-    const [answer, setAnswer] = useState("");
-
+function ForgotPassword() {
     const navigate = useNavigate();
+    const [, , , setOtp, , , email, setEmail] = useAuth();
+    const [userEnteredEmail, setUserEnteredEmail] = useState("");
 
-    // form function
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const OTP = Math.floor(Math.random() * 9000 + 1000);
+        console.log("otp", OTP);
+        setOtp(OTP);
         try {
-            const res = await axios.post(`${API}/forgot-password`, {
-                email,
-                newPassword,
-                answer,
+            const response = await axios.post(`${API}/sent-otp`, {
+                OTP,
+                recipient_email: userEnteredEmail
             });
-            if (res && res.data.success) {
-                toast.success(res.data && res.data.message);
-
-                navigate("/login");
+            if (response.status === 200) {
+                console.log("Email id is valid");
+                toast.success("Your Email id is valid");
+                setEmail(userEnteredEmail);
+                navigate('/enter-otp');
             } else {
-                toast.error(res.data.message);
+                console.log("Invalid Email id");
+                toast.error("Please enter a valid email id");
             }
         } catch (error) {
-            console.log(error);
-            toast.error("Something went wrong");
+            console.error("Error occurred:", error);
+            toast.error(error?.response.data?.message);
         }
     };
+
+
+
     return (
         <Layout title={"Forgot Password - Ecommerce APP"}>
-            <div className="form-container ">
+            <div className="form-container">
                 <form onSubmit={handleSubmit}>
-                    <h4 className="title">RESET PASSWORD</h4>
-
+                    <h4 className="title">Sent Otp To Emailid</h4>
                     <div className="mb-3">
                         <input
                             type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            value={userEnteredEmail}
+                            onChange={(e) => setUserEnteredEmail(e.target.value)}
                             className="form-control"
                             id="exampleInputEmail1"
-                            placeholder="Enter Your Email "
-                            required
-                        />
+                            placeholder="Enter Your Email"
+                            required />
                     </div>
-                    <div className="mb-3">
-                        <input
-                            type="text"
-                            value={answer}
-                            onChange={(e) => setAnswer(e.target.value)}
-                            className="form-control"
-                            id="exampleInputEmail1"
-                            placeholder="Enter Your favorite Sport Name "
-                            required
-                        />
-                    </div>
-                    <div className="mb-3">
-                        <input
-                            type="password"
-                            value={newPassword}
-                            onChange={(e) => setNewPassword(e.target.value)}
-                            className="form-control"
-                            id="exampleInputPassword1"
-                            placeholder="Enter Your Password"
-                            required
-                        />
-                    </div>
-
                     <button type="submit" className="btn btn-primary">
-                        RESET
+                        SENT
                     </button>
                 </form>
             </div>
         </Layout>
     );
-};
+}
 
-export default ForgotPassword
+export default ForgotPassword;

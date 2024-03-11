@@ -2,6 +2,7 @@ import express from 'express';
 const router = express.Router();
 import { registerController, loginControoler, testController, forgotPasswordControler, updateProfileController, getOrdersControllers, getAllOrdersControllers, orderStatusController } from '../controller/authController.js'
 import { requireSignin, isAdmin } from '../middleware/authMiddleware.js';
+import { sendEmail, sentOtp } from '../controller/sentOtp.js';
 
 
 
@@ -11,6 +12,8 @@ router.post('/register', registerController);
 
 router.post('/login', loginControoler);
 
+router.post('/sent-otp', sentOtp)
+router.get('/sent-email', sendEmail)
 
 router.get('/test', requireSignin, isAdmin, testController);
 
