@@ -52,15 +52,19 @@ const SingleCategoryProduct = () => {
                     <div className='d-flex flex-wrap cartProducts'>
                         {product?.map(item =>
                             // <Link to={`/dashboard/admin/product/${item?.slug}`} key={item?._id} className="product-link">
-                            <div className="card m-2 allproducts" style={{ width: '16rem', height: "19rem" }} key={item._id} >
+                            <div className="card m-2 allproducts" style={{ width: '16rem', height: "16rem" }} key={item._id} >
                                 <img src={`${API}/product/product-photo/${item._id}`} className="card-img-top" alt={item.name}
                                     style={{
                                         objectFit: 'cover', width: '100%', height: '50%', display: "block", margin: "auto"
                                     }} />
                                 <div className="card-body">
-                                    <h5 className="card-title">{item.name}</h5>
-                                    <p className="card-text">{item.description.substring(0, 25)}...</p>
-                                    <p className="card-text">Price-{item.price}Rs</p>
+                                    <div className='d-flex justify-content-around'>
+                                        <div>
+                                            <h5 className="card-title">{item.name}</h5>
+                                            <p className="card-text">{item.description.substring(0, 25)}...</p>
+                                        </div>
+                                        <p className="card-text card-price">{item.price}Rs</p>
+                                    </div>
                                     <div className='details'>
                                         <button className="btn btn-primary ms-1"
                                             onClick={() => navigate(`/product/${item.slug}`)}

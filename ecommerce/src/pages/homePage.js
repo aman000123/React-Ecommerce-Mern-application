@@ -225,16 +225,19 @@ const HomePage = () => {
                     {JSON.stringify(radio, null, 4)} */}
                         <div className='d-flex flex-wrap justify-content-evenly cartProducts'>
                             {products?.map(item =>
-                                <div className="card m-2 allproducts" style={{ width: '16rem', height: '19rem' }}
+                                <div className="card m-2 allproducts" style={{ width: '16rem', height: '17rem' }}
                                     key={item?._id} >
                                     <img src={`${API}/product/product-photo/${item._id}`} className="card-img-top" alt={item.name}
                                         style={{
                                             objectFit: 'cover', width: '100%', height: '50%', display: "block", margin: "auto"
                                         }} />
                                     <div className="card-body" style={{ padding: "14px 10px" }}>
-                                        <h5 className="card-title">{item.name.substring(0, 24)}..</h5>
-                                        <p className="card-text">{item.description.substring(0, 25)}...</p>
-                                        <p className="card-text">Price-{item.price}Rs</p>
+                                        <div className='d-flex justify-content-around'>
+                                            <div>
+                                                <h5 className="card-title">{item.name.substring(0, 24)}..</h5>
+                                                <p className="card-text">{item.description.substring(0, 25)}...</p></div>
+                                            <p className="card-text card-price">{item.price}Rs</p>
+                                        </div>
                                         <div className='details'>
                                             <button className="btn btn-primary ms-1"
                                                 onClick={() => navigate(`/product/${item.slug}`)}

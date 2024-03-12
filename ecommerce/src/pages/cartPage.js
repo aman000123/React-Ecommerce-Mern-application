@@ -138,7 +138,7 @@ const Cart = () => {
                                             alt={cartItem.productId.name}
 
                                             style={{
-                                                objectFit: 'cover', width: '130px', height: '100px', display: "block", margin: "auto"
+                                                objectFit: 'cover', width: '130px', height: '150px', display: "block", margin: "auto"
                                             }} />
                                     </div>
                                 )}
@@ -147,7 +147,7 @@ const Cart = () => {
                                     {cartItem.productId && (
                                         <>
                                             <p>{cartItem.productId.description}</p>
-                                            <p>Price: {cartItem.productId.price} Rs.</p>
+                                            <p className="card-price">Price: {cartItem.productId.price} Rs.</p>
                                             {/* Assuming removeCartItem function works correctly */}
                                             <button
                                                 className="btn btn-danger"
@@ -167,7 +167,7 @@ const Cart = () => {
 
                         <h4>Cart Summary</h4>
                         <p> Total | Checkout |Payment</p>
-                        <h3>Total: {totalPrice()}</h3>
+                        <h3 className="card-price">Total: {totalPrice()}</h3>
 
                         {auth?.user?.address ? (
                             <>

@@ -22,7 +22,7 @@ const Layout = ({ children, title, description, keywords, author }) => {
 
             <Header />
             {/* <Backgrounds /> */}
-            <main style={{ minHeight: '90vh' }}
+            <main style={{ minHeight: '100vh' }}
                 className="container-fluid main">
                 <Toaster />
                 {children}
