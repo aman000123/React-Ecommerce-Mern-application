@@ -27,13 +27,10 @@ function ForgotPassword() {
                 toast.success("Your Email id is valid");
                 setEmail(userEnteredEmail);
                 navigate('/enter-otp');
-            } else {
-                console.log("Invalid Email id");
-                toast.error("Please enter a valid email id");
             }
         } catch (error) {
             console.error("Error occurred:", error);
-            toast.error(error?.response.data?.message);
+            toast.error("Please enter a valid email id");
         }
     };
 

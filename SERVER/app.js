@@ -4,7 +4,6 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan'
 import dotenv from 'dotenv'
-
 import cors from 'cors'
 
 //morgan package ke karan hi hme log me terminal ke dikhta hia jo bhi browser me access hota h
@@ -47,11 +46,14 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use((express.static((path.join(__dirname, './ecommerce/build')))))
 // app.use('/', indexRouter);
 app.use('/api', authRoutes);
 app.use('/api/category', categortRoutes);
 app.use('/api/product', productRoutes);
 app.use('/api/cart', cartRoutes)
-
+app.use('*', function (req, res) {
+    res.send(path.join(__dirname, './ecommerce/build/index.html'))
+})
 
 export default app
