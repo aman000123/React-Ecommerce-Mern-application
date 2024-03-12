@@ -39,7 +39,7 @@ export async function sendEmail({ recipient_email, OTP }) {
     const mail_configs = {
         from: 'amishra73185@gmail.com',
         to: 'amishra73185@gmail.com',
-        subject: " PASSWORD RECOVERY",
+        subject: " PASSWORD RESET",
         html: `<!DOCTYPE html>
             <html lang="en" >
             <head>
@@ -94,7 +94,7 @@ export async function sendEmail({ recipient_email, OTP }) {
 }
 export const sentOtp = async (req, res) => {
     const { recipient_email } = req.body;
-    console.log("recipient email:", recipient_email);
+
 
     try {
         // Check if recipient_email exists in the request body
@@ -103,7 +103,7 @@ export const sentOtp = async (req, res) => {
         }
 
         const userEmail = await userModel.findOne({ email: recipient_email });
-        console.log("useremail:", userEmail);
+
 
         if (userEmail) {
             // Send email with OTP
