@@ -53,7 +53,7 @@ const ProductDetailes = () => {
     return (
         <Layout title={"Product details"}>
             <div className="row container mt-4 m-auto singleProductDetails"  >
-                <div className="col-md-6 allproducts unset " style={{
+                <div className="col-md-7 allproducts unset " style={{
                     // height: '50vh'
                 }}>
                     <img src={`${API}/product/product-photo/${product?._id}`} className="card-img-top" alt={product?.name}
@@ -72,7 +72,7 @@ const ProductDetailes = () => {
                 </div>
 
                 <hr className="hr" />
-                <div className=" container similerPro col-md-6 ">
+                <div className=" container similerPro col-md-3 ">
                     <h5 className="text-center card-price">Similer Products</h5>
                     {relatedProducts?.length < 1 && (<p className="text-center">No Similer product found</p>)}
                     <div className='d-flex flex-wrap relatedProducts'>
