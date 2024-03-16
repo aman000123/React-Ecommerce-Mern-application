@@ -23,13 +23,14 @@ import { API } from '../API/endpoint';
 
 const categoryIcons = {
     Kids: <ChildCareIcon style={{ fontSize: '2.5rem' }} />,
-    Mail: <ManIcon style={{ fontSize: '2.5rem' }} />, // Replace with the actual Mail icon
+    Mail: <ManIcon style={{ fontSize: '2.5rem' }} />,
     Female: <WomanIcon style={{ fontSize: '2.5rem' }} />,
     'Electronics gadgets': <DvrIcon style={{ fontSize: '2.5rem' }} />,
     'Electrical gadgets': <ElectricalServicesIcon style={{ fontSize: '2.5rem' }} />,
     Grocerry: <LocalGroceryStoreIcon style={{ fontSize: '2.5rem' }} />,
-    Dressings: <Face4Icon style={{ fontSize: '2.5rem' }} />, // Replace with the actual Dressings icon
-};
+    Dressings: <Face4Icon style={{ fontSize: '2.5rem' }} />,
+}
+
 
 
 
@@ -55,7 +56,6 @@ const HomePage = () => {
 
     useEffect(() => {
         window.addEventListener('resize', handleResize);
-
         return () => {
             window.removeEventListener('resize', handleResize);
         };
