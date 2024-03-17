@@ -78,8 +78,7 @@ export const loginControoler = async (req, res) => {
             })
         }
         const match = await comparePassword(password, user.password)
-
-
+        console.log("match========", match)
         if (!match) {
             return res.status(200).send({
                 success: false,
