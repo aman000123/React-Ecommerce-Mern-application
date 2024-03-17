@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom"
 const UserMenu = () => {
     return (
         <>
-            <div className="text-center mt-5">
+            <div className="text-center">
                 <div className="list-group dashboard-menu">
 
                     <NavLink

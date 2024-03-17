@@ -124,13 +124,13 @@ const CreateProduct = () => {
     return (
         <>
             <Layout title={" Dashboard Create-product"}>
-                <div className="container-fluid m-3 p-3">
+                <div className="container-fluid mt-3 p-3">
                     <div className="row">
                         <div className="col-md-3">
                             <Adminmenu />
                         </div>
                         <div className="col-md-9 mt-3">
-                            <h1>Create Product</h1>
+
                             <div className="m-1 w-75 creatrProAll">
                                 <Select bordered={false} placeholder="Select A category" size="large" showSearch
                                     className="form-select mb-3" onChange={(value) => { setCategory(value) }}>{
@@ -197,7 +197,7 @@ const CreateProduct = () => {
                                     </Select>
                                 </div>
                                 <div className="mb-3">
-                                    <button className="btn btn-primary" onClick={handleCreateProduct}> Create Product</button>
+                                    <button className="btn btn-secondary" onClick={handleCreateProduct}> Create Product</button>
                                 </div>
 
                             </div>

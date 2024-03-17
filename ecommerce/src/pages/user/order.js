@@ -34,13 +34,13 @@ const UserOrder = () => {
         <>
 
             <Layout title={"User Order"}>
-                <div className="container fluid p-3 mt-5">
+                <div className="container fluid p-3 mt-5 dashboard ">
                     <div className="row ">
                         <div className="col-md-3">
                             <UserMenu />
                         </div>
-                        <div className="col-md-9">
-                            <h1 className="text-center">Your Orders</h1>
+                        <div className="col-md-8 tabelDetails">
+                            {/* <h3 className="text-center "> Orders</h3> */}
                             {orders?.map((o, index) => {
                                 return (
                                     <div className="border shadow" key={index}>

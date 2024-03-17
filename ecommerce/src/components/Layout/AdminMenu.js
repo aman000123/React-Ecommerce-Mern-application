@@ -4,8 +4,8 @@ const Adminmenu = () => {
     return (
         <>
             <div className="text-center">
-                <div className="list-group dashboard-menu">
-                    <h4>Admin Panel</h4>
+                <div className="list-group dashboard-menu mt-3">
+                    {/* <h4>Admin Panel</h4> */}
                     <NavLink
                         to="/dashboard/admin/create-category"
                         className="list-group-item list-group-item-action"

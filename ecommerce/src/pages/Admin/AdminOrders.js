@@ -59,8 +59,8 @@ const AdminOrder = () => {
                 <div className="col-md-3">
                     <Adminmenu />
                 </div>
-                <div className="col-md-9">
-                    <h1 className="text-center">All orders</h1>
+                <div className="col-md-9 orderTable">
+
                     {orders?.map((o, index) => {
                         return (
                             <div className="border shadow">
@@ -109,7 +109,7 @@ const AdminOrder = () => {
                                                     }}
                                                 />
                                             </div>
-                                            <div className="col-md-8">
+                                            <div className="col-md-8 allOrderProducts">
                                                 <p>{p.name}</p>
                                                 <p>{p.description.substring(0, 30)}</p>
                                                 <p>Price : {p.price}</p>

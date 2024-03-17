@@ -8,16 +8,16 @@ const AdminDashboard = () => {
     return (
         <>
             <Layout title={"Admin Dashboard"}>
-                <div className="container-fluid m-3 p-3">
+                <div className="container-fluid mt-3 p-3 adminDashboard">
                     <div className="row">
                         <div className="col-md-3">
                             <Adminmenu />
                         </div>
-                        <div className="col-md-9">
+                        <div className="col-md-9 adm">
                             <div className="card w-75 p-3 m-auto">
-                                <h3> Admin Name : {auth?.user?.name}</h3>
-                                <h3> Admin Email : {auth?.user?.email}</h3>
-                                <h3> Admin Contact : {auth?.user?.phone}</h3>
+                                <h5> Admin Name : {auth?.user?.name}</h5>
+                                <h5> Admin Email : {auth?.user?.email}</h5>
+                                <h5> Admin Contact : {auth?.user?.phone}</h5>
                             </div>
                         </div>
                     </div>

@@ -155,6 +155,10 @@ body {
   font-weight: bold;
 }
 
+.userDashboard h5 {
+  color: green;
+}
+
 /* ========================================= */
 /* =========contact us ========= */
 .contactus {
@@ -226,6 +230,27 @@ body {
 
 }
 
+.dashboard-menu .list-group-item.active,
+.dropdown-item.active {
+  background: linear-gradient(to right, #434343, #000000);
+  border: none !important;
+}
+
+
+.dropdown-menu {
+  --bs-dropdown-padding-y: -0.5rem !important;
+
+}
+
+.form-container {
+  padding: 50px 0px !important;
+}
+
+.dashboard {
+  justify-content: center !important;
+}
+
+
 
 
 /* .allproducts:hover {
@@ -273,6 +298,11 @@ body {
 
 }
 
+
+.creatrProAll {
+  width: 50% !important;
+}
+
 .allproducts .card-body {
   padding: 20px 10px !important;
   background-color: rgba(128, 128, 128, 0.097);
@@ -306,6 +336,12 @@ body {
   display: none;
 }
 
+.updateProducts .updateBtn {
+  display: flex;
+  justify-content: space-between;
+
+}
+
 .cartProductsPrice .allproducts {
   box-shadow: unset !important
 }
@@ -317,6 +353,15 @@ body {
 @media (max-width: 768px) {
   .allproducts {
     width: 20rem !important;
+  }
+
+  .adminOrders .allproducts {
+    width: 10rem !important;
+  }
+
+  .adminOrders p {
+    margin-bottom: 5px !important;
+    font-size: 12px;
   }
 
   .navBars {
@@ -364,11 +409,19 @@ body {
 
   .catDiv {
     margin: auto;
+    font-size: 15px;
+  }
+
+  .catDiv button {
+    font-size: 13px;
+    padding: 1px 21px;
+
   }
 
   .catForm {
     display: flex;
-    width: 100vw;
+    width: 80vw;
+    flex-direction: column;
   }
 
   .allPro {
@@ -377,6 +430,7 @@ body {
 
   .creatrProAll {
     margin: auto;
+    width: 100% !important;
   }
 
   .userDashboard {
@@ -389,11 +443,34 @@ body {
 
   .usertables {
     td {
-      font-size: 10px;
+      font-size: 6px;
+      font-weight: 500;
     }
+
+  }
+
+  .tabelDetails {
+    margin-top: 50px;
+  }
+
+  .adminDashboard .card {
+    width: 100% !important;
+  }
+
+  .adminDashboard .adm {
+    margin-top: 40px;
+    text-align: center;
   }
 
   .usertables th {
+    font-size: 7px !important;
+  }
+
+  .table {
+    font-size: 10px !important;
+  }
+
+  .ant-select-selection-item {
     font-size: 10px !important;
   }
 
@@ -410,6 +487,35 @@ body {
   .navBars {
     /* flex-wrap: unset !important; */
   }
+
+  .adminDashboard .adm h5 {
+    font-size: 15px !important;
+
+
+  }
+
+  .updateBtn {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .adminOrders .allproducts {
+    width: 23rem !important;
+  }
+
+  .orderTable .allOrderProducts {
+    width: 100% !important;
+  }
+
+}
+
+@media screen and (max-width:2400px) {
+  .creatrProAll {
+    margin: auto;
+
+  }
+
 }
 
 @media screen and (max-width:1500px) {
@@ -447,6 +553,16 @@ body {
     box-shadow: unset !important;
   }
 
+  .updateProducts .updateBtn {
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+  .creatrProAll {
+    margin: auto;
+    width: 100% !important;
+  }
 }
 
 @media screen and (max-width:1024px) {
@@ -496,6 +612,17 @@ body {
 
   .hr {
     display: block !important;
+  }
+
+  .updateProducts .updateBtn {
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+  .creatrProAll {
+    margin: auto;
+    width: 90% !important;
   }
 }
 
@@ -562,6 +689,36 @@ body {
   .form-container {
     padding: 50px !important;
   }
+
+  .dashboard {
+    flex-direction: column;
+    margin: auto !important;
+  }
+
+  .userDashboard .card {
+    width: 100% !important;
+    text-align: center;
+  }
+
+  .dashboard .container,
+  .container-sm {
+    max-width: none !important;
+    color: red !important;
+  }
+
+  .updateProducts {
+    width: 100% !important;
+  }
+
+  .updateProducts .updateBtn {
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+  .adminOrders {}
+
+
 }
 
 
@@ -614,6 +771,17 @@ body {
 
   .unset .productContent {
     text-align: justify !important;
+  }
+}
+
+
+@media screen and (max-width:680px) {
+  .allOrderProducts {
+    width: 31% !important;
+  }
+
+  .allOrderProducts p {
+    text-align: center !important;
   }
 }
 
@@ -688,7 +856,57 @@ body {
   .userorders .allproducts {
     height: 9rem !important;
   }
+
+  .catDiv {
+    width: 100% !important;
+  }
+
+  .catDiv td {
+    font-size: 12px;
+  }
+
+  .creatrProAll {
+    width: 100% !important;
+  }
+
+  .updateProducts {
+    width: 100% !important;
+  }
+
+  .table {
+    font-size: 12px !important;
+
+
+  }
+
+  .table td {
+    font-size: 7px;
+  }
+
+  .ant-select-selection-item {
+    font-size: 8px;
+  }
+
+  .adminOrders .allproducts {
+    height: 7rem !important;
+  }
+
+  .adminOrders p {
+    text-align: center;
+    font-size: 10px;
+    margin-bottom: 5px !important;
+  }
+
+  .orderTable {
+    margin-top: 50px;
+  }
+
+
+  .table {
+    font-size: 6px !important;
+  }
 }
+
 
 @media screen and (max-width:370px) {
   .navbar-brand {
@@ -703,6 +921,30 @@ body {
   .main {
     /* height: 100vh !important; */
   }
+
+  .form-container form button {
+    border: 1px solid black;
+    border-radius: 0;
+    background-color: #000;
+    color: white;
+    width: 176px;
+  }
+
+  .form-container form {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 20px;
+    background-color: #fff;
+    width: 224px;
+  }
+
+
+  .table {
+    font-size: 6px !important;
+  }
+
+  .table td {
+    font-size: 8px;
+  }
 }
 
 @media screen and (max-width:320px) {
@@ -715,4 +957,11 @@ body {
     /* height: 100vh !important; */
   }
 
+  .form-container form button {
+    border: 1px solid black;
+    border-radius: 0;
+    background-color: #000;
+    color: white;
+    width: 183px !important;
+  }
 }
