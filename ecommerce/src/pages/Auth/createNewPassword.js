@@ -20,7 +20,6 @@ const CreateNewPassword = () => {
                 newPassword,
             });
             if (res && res.data.success) {
-                console.log("success login")
                 toast.success(res.data && res.data.message);
 
                 navigate("/login");

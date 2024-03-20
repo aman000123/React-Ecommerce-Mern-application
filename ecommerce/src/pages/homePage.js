@@ -31,15 +31,10 @@ const categoryIcons = {
     Dressings: <Face4Icon style={{ fontSize: '2.5rem' }} />,
 }
 
-
-
-
 const HomePage = () => {
-
     const navigate = useNavigate()
     const [cart, addToCart] = useCart();
     const [auth, setAuth] = useAuth()
-    // console.log("auth?.user?.userid", auth?.user?.userid)
     const [products, setProducts] = useState([])
     const [categories, setCategories] = useState([])
     const [checked, setChecked] = useState([])
@@ -73,7 +68,6 @@ const HomePage = () => {
     }
     const getAllCategory = async () => {
         try {
-            //res ke andar data hota ha destructure
             const { data } = await axios.get(`${API}/category/get-categories`);
             if (data?.success) {
                 setCategories(data?.category);
@@ -124,8 +118,6 @@ const HomePage = () => {
             const { data } = await axios.get(`${API}/product/product-list/${page}`);
             setLoading(false)
             setProducts(data?.products)
-            console.log("data in home page", data.products)
-
         } catch (error) {
             console.log("error in getall prduct", error)
             setLoading(false)
@@ -140,7 +132,6 @@ const HomePage = () => {
         //eslint-disable-next-line
     }, [checked.length, radio.length])
 
-
     //if select price and category
     useEffect(() => {
         if (checked.length || radio.length) filterProduct()
@@ -154,25 +145,20 @@ const HomePage = () => {
             const { data } = await axios.post(`${API}/product/product-filter`, {
                 checked, radio
             })
-
             setProducts(data?.filterProduct)
-
         } catch (error) {
             console.log("error in filter product", error)
 
         }
     }
-
     const handleAddToCart = (productId) => {
         // console.log("id products in home page", productId)
         addToCart(productId);
     };
 
     const handlePriceChange = (selectedIndex) => {
-        console.log("Selected index:", selectedIndex);
         if (selectedIndex !== undefined && selectedIndex !== null) {
             const selectedPrice = Prices[selectedIndex];
-            console.log("Selected price range:", selectedPrice);
             setRadio(selectedPrice.array);
         } else {
             console.log("No value selected");

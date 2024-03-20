@@ -41,13 +41,10 @@ const UpdateProduct = () => {
             toast.error(error.message)
         }
     }
-
-
     const getAllCategory = async () => {
         try {
             //res ke andar data hota ha destructure
             const { data } = await axios.get(`${API}/category/get-categories`);
-            console.log(data.category)
             if (data?.success) {
                 setCategories(data?.category);
                 // toast.success(data?.message)
@@ -58,8 +55,6 @@ const UpdateProduct = () => {
             toast.error("Some things went wrong for getting category")
         }
     }
-
-
     useEffect(() => {
         getAllCategory()
     }, [])
@@ -92,7 +87,6 @@ const UpdateProduct = () => {
             }
             const { data } = axios.put(`${API}/product/update-product/${id}`, productData);
             if (data?.success) {
-                console.log("data in upload produdt", data)
                 toast.error(data?.error);
             } else {
                 toast.success("Product Updated Successfully");
@@ -115,7 +109,6 @@ const UpdateProduct = () => {
             const { data } = await axios.delete(`${API}/product/delete-product/${id}`)
             toast.success('Product deleted success Fully')
             navigate("/dashboard/admin/products");
-
         } catch (error) {
             console.log("error in deleting product")
             toast.error(error.data.message)
@@ -162,7 +155,7 @@ const UpdateProduct = () => {
                                         {/* Display uploaded image if 'photo' exists, otherwise fetch from URL */}
                                         <img
                                             src={photo ? URL.createObjectURL(photo) : `${API}/product/product-photo/${id}?${new Date().getTime()}`}
-                                            alt="Product photo"
+                                            alt="Product"
                                             height={'200px'}
                                             className="imb img-responsive"
                                         />
@@ -213,19 +206,6 @@ const UpdateProduct = () => {
                     </div>
                 </div>
             </Layout>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         </>
     )

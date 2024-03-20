@@ -19,12 +19,8 @@ const CreateProduct = () => {
     const [quantity, setQuantity] = useState("");
     const [shipping, setShipping] = useState("");
     const [photo, setPhoto] = useState("");
-
-
     const navigate = useNavigate();
-
     const getAllCategory = async () => {
-
         try {
             //res ke andar data hota ha destructure
             const { data } = await axios.get(`${API}/category/get-categories`);
@@ -32,11 +28,8 @@ const CreateProduct = () => {
                 setCategories(data?.category);
                 // toast.success(data?.message)
             }
-
         }
         catch (error) {
-
-
             console.log("error in fething categories", error)
             toast.error("Some things went wrong for getting category")
         }
@@ -103,13 +96,8 @@ const CreateProduct = () => {
             productData.append("quantity", quantity);
             productData.append("photo", photo);
             productData.append("category", category);
-
-
             const { data } = axios.post(`${API}/product/create-product`, productData);
-
-
             if (data?.success) {
-                console.log("data in upload produdt", data)
                 toast.error(data?.error);
             } else {
                 toast.success("Product Created Successfully");

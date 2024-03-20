@@ -9,24 +9,15 @@ import { API } from "../../API/endpoint"
 const UserOrder = () => {
 
     const [auth, setAuth] = useAuth()
-
     const [orders, setOrders] = useState([])
-
-
     const getOrders = async () => {
         try {
-
             const { data } = await axios.get(`${API}/orders`)
-            // console.log("data in orders data", data)
-            // console.log("data in orders", data?.orders)
             setOrders(data)
-
-
         } catch (error) {
             console.log("error on geting order")
         }
     }
-
     useEffect(() => {
         if (auth?.token) getOrders()
     }, [auth?.token])

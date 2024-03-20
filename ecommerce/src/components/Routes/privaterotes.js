@@ -16,15 +16,11 @@ export default function PrivateRoutes() {
         const authCheck = async () => {
 
             const res = await axios.get('http://localhost:4004/api/user-auth')
-
             if (res.data.ok) {
                 setOk(true)
             } else {
                 setOk(false)
             }
-
-
-
         }
 
         if (auth?.token) authCheck()

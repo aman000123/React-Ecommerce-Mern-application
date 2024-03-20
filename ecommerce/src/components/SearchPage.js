@@ -17,7 +17,6 @@ const SearchPage = () => {
 
 
     const handleAddToCart = (productId) => {
-        // console.log(" id in searching", productId)
         addToCart(productId);
     };
 

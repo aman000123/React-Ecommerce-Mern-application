@@ -14,7 +14,6 @@ const ProductDetailes = () => {
     const [auth] = useAuth()
     const [relatedProducts, setRelatedProducts] = useState([])
     const navigate = useNavigate()
-
     const params = useParams()
     const [product, setProduct] = useState()
     useEffect(() => {
@@ -34,7 +33,6 @@ const ProductDetailes = () => {
     const getSimilerProduct = async (pid, cid) => {
         try {
             const { data } = await axios.get(`${API}/product/related-product/${pid}/${cid}`)
-            // console.log("data in similer", data?.products)
             setRelatedProducts(data?.products)
         } catch (error) {
             console.log("error in geting similer products")
@@ -44,7 +42,6 @@ const ProductDetailes = () => {
 
 
     const handleAddToCart = (productId) => {
-        // console.log("id products in details", productId)
         addToCart(productId);
     };
 
@@ -60,12 +57,10 @@ const ProductDetailes = () => {
                         style={{
                             objectFit: 'cover', width: 'min-content', height: "300px", display: "block", margin: "auto"
                         }} />
-                    <div className=" mt-5 productContent"  //style={{ height: '50vh' }}
+                    <div className=" mt-5 productContent"
                     >
-                        {/* <h4 className="text-center">Product Details</h4> */}
                         <h5>Product:{product?.name}</h5>
                         <h6>Category:{product?.category.name}</h6>
-                        {/* <h4>Shipping:{product?.shipping}</h4> */}
                         <p>Description:{product?.description}</p>
                         <p className="card-price">Price:{product?.price}Rs</p>
                     </div>
@@ -90,8 +85,6 @@ const ProductDetailes = () => {
                                         </div>
                                         <p className="card-text card-price">{item.price}Rs</p>
                                     </div>
-
-
                                     {auth?.token ? (
                                         <AddShoppingCartIcon onClick={() => handleAddToCart(item._id)} style={{ cursor: "pointer" }}>
                                         </AddShoppingCartIcon>

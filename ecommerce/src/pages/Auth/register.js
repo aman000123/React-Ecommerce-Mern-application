@@ -16,9 +16,6 @@ const Register = () => {
     const [answer, setAnswer] = useState("");
     const navigate = useNavigate();
 
-
-    // console.log(process.env.API)
-
     const handleFormSubmit = async (e) => {
         e.preventDefault();
 

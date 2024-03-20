@@ -16,18 +16,12 @@ const AdminOrder = () => {
     //enum: ["Not Process", "Processing", "Shipped", "deliverd", "cancel"],  order model me pass kiya tha
 
     const [changeStatus, setChangeStatus] = useState("")
-
-
     const [auth, setAuth] = useAuth()
-
     const [orders, setOrders] = useState([])
-
-
     const getOrders = async () => {
         try {
 
             const { data } = await axios.get(`${API}/Allorders`)
-            //   console.log("data in admin orders", data)
             setOrders(data)
 
         } catch (error) {
@@ -42,12 +36,10 @@ const AdminOrder = () => {
     const handleOnChange = async (orderId, value) => {
         ///order-status/:orderId
         try {
-
             const { data } = await axios.put(`${API}/order-status/${orderId}`, {
                 status: value
             })
             getOrders()
-
         } catch (error) {
             console.log("error in updation product status", error)
         }

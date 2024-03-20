@@ -17,7 +17,7 @@ const CartProvider = ({ children }) => {
 
     const addToCart = async (productId) => {
         try {
-            // console.log("id in context", productId, userId)
+
             const response = await axios.post(`${API}/cart/cartAdd/${userId}`, {
                 productId,
                 quantity: 1, // Assuming you're adding one quantity at a time
@@ -26,7 +26,7 @@ const CartProvider = ({ children }) => {
             if (response.data.success) {
                 const updatedCart = [...cart, response.data?.cart];
                 toast.success("Product add into your cart")
-                // console.log("cart length", cart?.length)
+
                 setCart(updatedCart);
             }
         } catch (error) {

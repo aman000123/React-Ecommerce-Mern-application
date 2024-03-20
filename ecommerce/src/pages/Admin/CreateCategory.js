@@ -10,7 +10,6 @@ import { API } from "../../API/endpoint"
 const CreateCategory = () => {
 
     const [categories, setCategories] = useState([])
-
     const [name, setName] = useState();
     const [visible, setVisible] = useState(false);
     const [selected, setSelected] = useState(null);
@@ -26,8 +25,6 @@ const CreateCategory = () => {
                 toast.error(data.message)
 
             }
-            // console.log("data i", data)
-
             if (data?.success) {
                 toast.success(`${data?.category.name} is Created`)
                 getAllCategory()
@@ -41,44 +38,32 @@ const CreateCategory = () => {
             toast.error(error?.response?.data.message)
         }
     }
-
-
     //get all
     const getAllCategory = async () => {
-
         try {
             //res ke andar data hota ha destructure
             const { data } = await axios.get(`${API}/category/get-categories`);
             if (data?.success) {
                 setCategories(data?.category);
             }
-
         }
         catch (error) {
             console.log("error in fething categories", error)
             toast.error("Some things went wrong for getting category")
         }
     }
-
-
     useEffect(() => {
         getAllCategory()
     }, [])
-
-
 
     const handleUpdate = async (e) => {
         e.preventDefault()
 
         try {
-
-
             const { data } = await axios.put(`${API}/category/update-category/${selected._id}`, { name: updatedName });
-
             if (!updatedName) {
                 toast.error("Please enter the category name")
                 return
-
             }
             if (data.success) {
                 toast.success(`${updatedName} is updated`)
@@ -89,18 +74,11 @@ const CreateCategory = () => {
             }
             else {
                 toast.error(data?.message)
-
             }
-
         } catch (error) {
             console.log("error in edit", error)
         }
-
-
     }
-
-
-
     const handleDelete = async (id) => {
         try {
             const { data } = await axios.delete(`${API}/category/delete-category/${id}`);
@@ -112,7 +90,6 @@ const CreateCategory = () => {
             else {
                 toast.error(data?.message)
             }
-
         } catch (error) {
             console.log("error in delete", error)
         }

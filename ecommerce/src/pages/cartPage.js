@@ -10,21 +10,15 @@ import { API } from "../API/endpoint"
 const Cart = () => {
 
     const [cart, setCart, removeFromCart, fetchCart] = useCart()
-
     const [auth, setAuth] = useAuth()
-
     const navigate = useNavigate()
-
     //payment token
     //this token approx  10000 letters
-
     const [clientToken, setClienToken] = useState("")
     //brainteree ke sath hi instance bhi milta ha
 
     const [instance, setInstance] = useState(null)
-
     const [loading, setLoading] = useState("")
-
     const totalPrice = () => {
         try {
             let total = 0;
@@ -48,7 +42,6 @@ const Cart = () => {
 
         try {
             const { data } = await axios.get(`${API}/product/braintree/token`);
-            //console.log("data?.clientToken", data?.clientToken)
             setClienToken(data?.clientToken)
         } catch (error) {
             console.log("errro in geting braintree token", error)
@@ -67,14 +60,11 @@ const Cart = () => {
             setLoading(true);
 
             if (!instance) throw new Error("Braintree instance not available");
-
             const { nonce } = await instance.requestPaymentMethod();
             const { data } = await axios.post(`${API}/product/braintree/payment`, {
                 nonce,
                 cart: cart.map(item => item.productId._id),
             });
-
-            console.log("data in payment", data);
             setLoading(false);
 
             if (data.ok && !data.payment.errors) {

@@ -31,7 +31,6 @@ const Login = () => {
                     token: res.data.token
 
                 })
-                // console.log("dddddd", res?.data)
                 localStorage.setItem('auth', JSON.stringify(res.data))
                 //if user logout itme jis page pe ho use whi open mile dubara
                 navigate(location.state || "/");

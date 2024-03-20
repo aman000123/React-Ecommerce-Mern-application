@@ -12,7 +12,6 @@ const ProductPage = () => {
     const getAllProduct = async () => {
         try {
             const { data } = await axios.get(`${API}/product/get-product`);
-            console.log("dtaa get", data)
             setProducts(data?.products)
             toast.success(data?.message)
         }

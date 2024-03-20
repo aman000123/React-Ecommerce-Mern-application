@@ -22,7 +22,6 @@ const SingleCategoryProduct = () => {
         try {
             const { data } =
                 await axios.get(`${API}/product/product-category/${params.slug}`)
-            // console.log("data?.productsdata?.products", data?.category, data?.products)
             setProduct(data?.products)
             setCategory(data?.category)
         } catch (error) {
@@ -39,7 +38,6 @@ const SingleCategoryProduct = () => {
         [params?.slug])
 
     const handleAddToCart = (productId) => {
-        // console.log("id products in category wise", productId)
         addToCart(productId);
     };
 

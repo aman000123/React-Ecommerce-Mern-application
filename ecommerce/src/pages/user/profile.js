@@ -13,18 +13,14 @@ const Profile = () => {
 
     //context
     const [auth, setAuth] = useAuth()
-
     const [name, setName] = useState("")
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [phone, setPhone] = useState("");
     const [address, setAddress] = useState("");
-
     const navigate = useNavigate();
     const location = useLocation();
-
     //get user data
-
     useEffect(() => {
         const { email, name, phone, address } = auth?.user;
         setName(name)
@@ -32,23 +28,19 @@ const Profile = () => {
         setPhone(phone)
         setAddress(address)
     }, [auth?.user])
-
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         ///update
-
         try {
             const { data } = await axios.put(`${API}/update`, {
 
                 name, email, password, phone, address,
             });
-
             if (data?.error) {
                 toast.error(data?.error)
             }
             else {
                 setAuth({ ...auth, user: data?.updateUser })
-
                 let locals = localStorage.getItem('auth')
                 locals = JSON.parse(locals);
                 locals.user = data?.updateUser;

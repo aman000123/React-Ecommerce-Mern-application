@@ -28,7 +28,6 @@ const EnterOtp = () => {
     }, [disable]);
 
     function resendOTP() {
-        console.log("email", email)
         if (disable) return;
         axios.post(`${API}/sent-otp`, {
             OTP: otp,
@@ -44,7 +43,6 @@ const EnterOtp = () => {
         const enteredOTP = OTPinput.join(""); // Join OTPinput array to form a string
         const receivedOTPString = otp.toString(); // Convert received OTP to string
         if (enteredOTP === receivedOTPString) {
-            console.log("writeOtp");
             navigate('/reset-password');
         } else {
             alert("The code you have entered is not correct, try again or re-send the link");
