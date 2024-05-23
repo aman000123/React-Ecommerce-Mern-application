@@ -41,9 +41,12 @@ const ProductDetailes = () => {
 
 
 
-    const handleAddToCart = (productId) => {
+    const handleAddToCart = (event, productId) => {
+        event.stopPropagation(); // Prevent the event from propagating to the card's click event
         addToCart(productId);
     };
+    //in products we used two onClick event
+    // event.stopPropagation() in the click event handler for the "Add to Cart" icon. This will stop the click event from bubbling up to the card's click event handler.
 
 
 
@@ -87,16 +90,19 @@ const ProductDetailes = () => {
                                     </div>
                                     {auth?.token ? (
                                         <>
-                                            <AddShoppingCartIcon onClick={() => handleAddToCart(item._id)} style={{ cursor: "pointer" }}>
+                                            <AddShoppingCartIcon onClick={(event) => handleAddToCart(event, item._id)} style={{ cursor: "pointer" }}>
                                             </AddShoppingCartIcon>
 
                                         </>
 
 
                                     ) : (
-                                        <AddShoppingCartIcon onClick={() => navigate('/login', {
-                                            state: '/'
-                                        })} style={{ cursor: "pointer" }}>
+                                        <AddShoppingCartIcon
+                                            onClick={(event) => {
+                                                event.stopPropagation();
+                                                navigate('/login', { state: '/' });
+                                            }}
+                                            style={{ cursor: "pointer" }}>
 
                                         </AddShoppingCartIcon>
 

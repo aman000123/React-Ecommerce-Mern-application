@@ -28,7 +28,7 @@ const CartProvider = ({ children }) => {
         } catch (error) {
             // Handle error response from the server
             if (error.response && error.response.status === 400) {
-                toast.error("Product hasbeen added already")
+                toast.error("Product hasbeen added already into your cart")
             } else {
                 console.log("Error adding to cart:", error);
                 // Handle other errors, display an error message, etc.
