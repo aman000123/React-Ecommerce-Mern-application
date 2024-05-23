@@ -286,6 +286,10 @@ body {
 
 }
 
+.cartProducts {
+  justify-content: center;
+}
+
 .cartProducts p {
   margin-bottom: 10px !important;
   font-size: 14px;

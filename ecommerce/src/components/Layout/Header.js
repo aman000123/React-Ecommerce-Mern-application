@@ -13,7 +13,7 @@ import { Badge } from 'antd'
 
 const Header = () => {
     //kewal cart get karna h set nhi so cart hi lete ha usecart se
-    const [cart, setCart] = useCart()
+    const [cart] = useCart()
 
     const [auth, setAuth] = useAuth()
     const navigat = useNavigate()
@@ -22,7 +22,6 @@ const Header = () => {
     const handleLogout = () => {
         setAuth({ ...auth, user: null, token: '' })
         //user me aur bhi things hai 
-        setCart([])
         localStorage.removeItem('auth');
         toast.success('Logout Success')
         navigat('/login')

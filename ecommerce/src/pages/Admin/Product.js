@@ -14,6 +14,7 @@ const ProductPage = () => {
             const { data } = await axios.get(`${API}/product/get-product`);
             setProducts(data?.products)
             toast.success(data?.message)
+            console.log("proudct laredy addes", data?.message)
         }
         catch (error) {
             console.log("error in get all product", error)

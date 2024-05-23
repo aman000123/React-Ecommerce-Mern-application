@@ -111,7 +111,6 @@ const HomePage = () => {
         getTotal()
     }, [])
 
-
     const getAllProduct = async () => {
         try {
             setLoading(true)

@@ -72,7 +72,7 @@ const ProductDetailes = () => {
                     {relatedProducts?.length < 1 && (<p className="text-center">No Similer product found</p>)}
                     <div className='d-flex flex-wrap relatedProducts'>
                         {relatedProducts?.map(item =>
-                            <div className="card m-2 allproducts " style={{ width: '18rem', height: '18rem' }} key={item._id}>
+                            <div className="card m-2 allproducts " style={{ width: '18rem', height: '18rem' }} key={item._id} onClick={() => navigate(`/product/${item.slug}`)}>
                                 <img src={`${API}/product/product-photo/${item._id}`} className="card-img-top" alt={item.name}
                                     style={{
                                         objectFit: 'cover', width: '100%', height: '50%', display: "block", margin: "auto"
@@ -86,8 +86,13 @@ const ProductDetailes = () => {
                                         <p className="card-text card-price">{item.price}Rs</p>
                                     </div>
                                     {auth?.token ? (
-                                        <AddShoppingCartIcon onClick={() => handleAddToCart(item._id)} style={{ cursor: "pointer" }}>
-                                        </AddShoppingCartIcon>
+                                        <>
+                                            <AddShoppingCartIcon onClick={() => handleAddToCart(item._id)} style={{ cursor: "pointer" }}>
+                                            </AddShoppingCartIcon>
+
+                                        </>
+
+
                                     ) : (
                                         <AddShoppingCartIcon onClick={() => navigate('/login', {
                                             state: '/'

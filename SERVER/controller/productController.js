@@ -72,7 +72,8 @@ export const createProduct = async (req, res) => {
 export const getAllProductController = async (req, res) => {
     try {
 
-        const products = await productModel.find({}).populate('category').select("-photo").limit(12).sort({ createdAt: -1 })
+        const products = await productModel.find({}).populate('category').select("-photo").sort({ createdAt: -1 })
+
         //populate('category')  puri category ki detail bhi mil jati ha product ke andar hi
         //photo ke liye alag api bcz data bhut jyada ho jayega
         res.status(200).send({
